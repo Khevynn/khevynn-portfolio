@@ -1,6 +1,6 @@
 function InfoBox({ title, provider, location, description, image }) {
   return (
-    <div className="flex flex-col items-center gap-10 mx-5 p-10 shadow-2xl/30 shadow-pro rounded-4xl bg-gray-700 lg:mx-0 lg:w-175 xl:w-200 lg:h-175">
+    <div className="flex flex-col items-center gap-10 mx-5 p-10 shadow-2xl/30 shadow-pro rounded-4xl bg-gray-700 lg:mx-0 lg:h-175">
       <div>
         {(() => {
           if (image != null) {

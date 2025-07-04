@@ -1,9 +1,24 @@
+import { gsap } from "gsap";
+import { useLayoutEffect } from "react";
+
 function SocialIcons() {
+  useLayoutEffect(() => {
+    gsap.to(".social-icons", {
+      duration: 1,
+      opacity: 1,
+      x: 0,
+    });
+
+    return () => {
+      gsap.killTweensOf(".social-icons");
+    };
+  }, []);
+
   return (
     <div className="flex flex-col gap-5 md:flex-row">
       <a
         href="https://www.linkedin.com/in/yourusername"
-        className="flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-3 text-gray-200 transition-all duration-300 hover:bg-emerald-700"
+        className="social-icons flex items-center translate-x-[-100px] gap-2 rounded-full bg-emerald-500 px-5 py-3 text-gray-200 transition-all duration-300 hover:bg-emerald-700"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +35,7 @@ function SocialIcons() {
 
       <a
         href="https://github.com/yourusername"
-        className="flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-3 text-gray-200 transition-all duration-300 hover:bg-emerald-700"
+        className="social-icons flex items-center translate-x-[100px] gap-2 rounded-full bg-emerald-500 px-5 py-3 text-gray-200 transition-all duration-300 hover:bg-emerald-700"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

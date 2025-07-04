@@ -3,7 +3,10 @@ import SocialIcons from "../SocialIcons";
 
 function MainPanel() {
   return (
-    <div className="flex flex-col min-h-154 px-10 justify-around bg-gray-950 md:gap-15 xl:px-50 xl:gap-40 md:flex-row">
+    <div
+      id="mainPanel"
+      className="flex flex-col min-h-154 px-10 justify-around bg-gray-950 md:gap-15 2xl:min-h-200 xl:px-50 xl:gap-40 md:flex-row"
+    >
       <div className="flex items-center justify-center md:order-last">
         <div className="relative h-[300px] w-[280px] max-md:top-10 md:h-[360px] md:w-[320px]">
           <img

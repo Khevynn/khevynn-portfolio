@@ -11,7 +11,10 @@ function Contact() {
   }
 
   return (
-    <div className="flex flex-col items-center px-5 min-h-100 bg-gray-950 gap-7 max-md:pb-10 md:px-50">
+    <div
+      id="contact"
+      className="flex flex-col items-center px-5 min-h-100 bg-gray-950 gap-7 max-md:pb-10 md:px-50"
+    >
       <h1 className="mt-10 text-center text-4xl text-gray-200 font-semibold">
         What's Next?
       </h1>
