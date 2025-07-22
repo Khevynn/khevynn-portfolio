@@ -50,11 +50,11 @@ function ProjectsPreview() {
         This section will showcase a preview of various projects.
       </p>
 
-      <div className="flex flex-col gap-5 mb-10 items-center lg:items-start lg:flex-row">
+      <div className="flex flex-col gap-5 mb-10 items-center justify-center lg:items-start lg:flex-row">
         {RenderProjects()}
       </div>
 
-      <div className="flex justify-center mb-10">
+      <div className="flex justify-center items-center mb-10">
         <a
           href="/projects"
           className="mb-8 px-6 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-semibold shadow"
