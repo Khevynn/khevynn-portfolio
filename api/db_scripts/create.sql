@@ -13,4 +13,11 @@ CREATE TABLE projects(
     image_url varchar(200)
 );
 
+CREATE TABLE users(
+    id serial primary key not null,
+    password varchar(200) not null,
+    email varchar(100) not null unique,
+    refresh_token varchar(200)
+);
+
 SELECT * FROM projects;

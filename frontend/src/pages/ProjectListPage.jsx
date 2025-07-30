@@ -1,20 +1,34 @@
-import NavBar from "../components/NavBar";
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { PROJECTS_API_URL } from "../constants/api";
-import ProjectFullBox from "../components/ProjectFullBox";
+import { useProjects } from "../hooks/useProjects";
+import ProjectFullBox from "../components/layouts/Projects/ProjectFullBox";
+import Footer from "../components/Footer";
+import NavigateButton from "../components/ui/NavigateButton";
+import Loading from "../components/ui/Loading";
 
-function ProjectList({ projects }) {
-  // Show loading message if projects are not loaded yet
-  if (!projects) {
+function ProjectList({ projects, isLoading, error }) {
+  if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <p className="text-gray-400">Loading projects...</p>
+      <div className="text-gray-400 text-sm font-thin h-64 text-center flex justify-center items-center">
+        <Loading />
       </div>
     );
   }
 
-  // Render the list of projects using ProjectFullBox component
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <p className="text-red-400">Error loading projects: {error.message}</p>
+      </div>
+    );
+  }
+
+  if (!Array.isArray(projects) || projects.length === 0) {
+    return (
+      <div className="text-gray-400 text-sm font-thin h-64 text-center flex justify-center items-center">
+        No projects available.
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col gap-6 flex-wrap justify-center">
       {projects.map((project, index) => (
@@ -29,31 +43,33 @@ function ProjectList({ projects }) {
 }
 
 function ProjectListPage() {
-  const navigate = useNavigate();
-  const [projects, setProjects] = useState(null);
-
-  useEffect(() => {
-    fetch(PROJECTS_API_URL)
-      .then((response) => response.json())
-      .then((json) => setProjects(json))
-      .catch((error) => console.error(error));
-  }, []);
+  const { data: projects, isLoading, error } = useProjects("");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-950">
-      <div className="max-w-5xl mx-auto py-16 px-4">
-        <button
-          className="mb-8 px-6 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-semibold shadow"
-          onClick={() => navigate("/")}
-        >
-          Back to Home
-        </button>
-        <h1 className="text-4xl font-extrabold text-white mb-10 text-center drop-shadow">
-          Projects
-        </h1>
-        <ProjectList projects={projects} />
+    <>
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-950">
+        <div className="max-w-5xl mx-auto py-16 px-4">
+          <NavigateButton
+            to={"/"}
+            className="bg-gray-800 hover:bg-gray-700 text-white"
+          >
+            ← Back to Main Page
+          </NavigateButton>
+
+          <h1 className="text-4xl font-extrabold text-white mb-10 text-center drop-shadow">
+            Projects
+          </h1>
+
+          {/* Render the project list */}
+          <ProjectList
+            projects={projects}
+            isLoading={isLoading}
+            error={error}
+          />
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
 

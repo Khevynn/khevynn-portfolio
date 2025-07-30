@@ -1,4 +1,4 @@
-import InfoBox from "../components/EducationBox";
+import InfoBox from "../components/layouts/EducationBox";
 import ProgrammingCourseImage from "../assets/programming-course.png";
 import IadePhoto from "../assets/iade-photo.png";
 import { gsap } from "gsap";

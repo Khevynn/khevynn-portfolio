@@ -16,13 +16,27 @@ module.exports = {
     }
   },
 
+  async getProjectById(id) {
+    try {
+      const project = await ProjectRepository.findById(id);
+      if (!project) {
+        return { status: 404, data: { message: "Project not found" } };
+      }
+      return { status: 200, data: project };
+    } catch (error) {
+      console.error("Error retrieving project:", error);
+      return { status: 500, data: { message: "Internal Server Error" } };
+    }
+  },
+
   async createProject(data, file) {
     try {
-      if (!file) return res.status(400).json({ error: "Image is required" });
-
+      if (!file) {
+        return { status: 400, data: { message: "Image file is required" } };
+      }
       const response = await uploadImage(file);
 
-      const imageUrl = response.data.data.url;
+      const imageUrl = response.data.data.url || null;
 
       // Clean up temp file
       fs.unlink(file.path, () => {});

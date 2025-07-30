@@ -1,4 +1,4 @@
-import SocialIcons from "../components/SocialIcons";
+import SocialIcons from "../components/layouts/SocialIcons";
 
 function Contact() {
   let email = "tgwinter@proton.me";

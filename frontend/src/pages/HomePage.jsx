@@ -1,4 +1,5 @@
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import MainPanel from "../sections/MainPanel";
 import About from "../sections/About";
 import Skills from "../sections/Skills";
@@ -16,6 +17,7 @@ function HomePage() {
       <Education />
       <ProjectsPreview />
       <Contact />
+      <Footer />
     </>
   );
 }

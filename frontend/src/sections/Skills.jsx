@@ -8,7 +8,7 @@ import JavascriptOriginal from "react-devicons/javascript/original";
 import JavaOriginal from "react-devicons/java/original";
 import TailwindcssOriginalWordmark from "react-devicons/tailwindcss/original-wordmark";
 import GithubOriginal from "react-devicons/github/original";
-import RatingStar from "../components/RatingStar";
+import RatingStar from "../components/layouts/RatingStar";
 
 function Skills() {
   return (

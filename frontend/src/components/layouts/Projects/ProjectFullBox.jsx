@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import GithubOriginal from "react-devicons/github/original";
 
 function ProjectFullBox({ project, index }) {

@@ -1,5 +1,5 @@
 import myPhoto from "../assets/photo-khevynn.png";
-import SocialIcons from "../components/SocialIcons";
+import SocialIcons from "../components/layouts/SocialIcons";
 
 function MainPanel() {
   return (

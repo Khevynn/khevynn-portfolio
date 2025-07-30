@@ -1,41 +1,50 @@
-import React, { useState, useEffect } from "react";
-import ProjectPreviewBox from "../components/ProjectPreviewBox";
-import { PROJECTS_API_URL } from "../constants/api";
+import { useProjects } from "../hooks/useProjects";
+import ProjectPreviewBox from "../components/layouts/Projects/ProjectPreviewBox";
+import Loading from "../components/ui/Loading";
+import NavigateButton from "../components/ui/NavigateButton";
 
 function ProjectsPreview() {
-  const [projects, setProjects] = useState(null);
-
-  useEffect(() => {
-    fetch(PROJECTS_API_URL)
-      .then((response) => response.json())
-      .then((json) => setProjects(json))
-      .catch((error) => console.error(error));
-  }, []);
-
+  const { data: projects, isLoading, error } = useProjects("");
   function RenderProjects() {
-    if (!projects) {
+    // Show loading state
+    if (isLoading) {
       return (
-        <div className="flex justify-center items-center h-64">
-          <p className="text-gray-400">Loading projects...</p>
+        <div className="text-gray-400 text-sm font-thin h-64 text-center flex justify-center items-center">
+          <Loading />
         </div>
       );
-    } else if (projects.length === 0) {
-      // If projects is an empty array, show a message
+    }
+
+    // Show error state
+    if (error) {
+      return (
+        <div className="flex justify-center items-center h-64">
+          <p className="text-red-400">
+            Error loading projects: {error.message}
+          </p>
+        </div>
+      );
+    }
+
+    // Ensure projects is an array before using .map()
+    if (!Array.isArray(projects) || projects.length === 0) {
       return (
         <div className="flex justify-center items-center h-64">
           <p className="text-gray-400">No projects available.</p>
         </div>
       );
-    } else {
-      return projects
-        .slice(0, 3)
-        .map((project) => (
-          <ProjectPreviewBox
-            project={project}
-            projectIndex={projects.indexOf(project)}
-          />
-        ));
     }
+
+    // Render projects
+    return projects
+      .slice(0, 3)
+      .map((project, index) => (
+        <ProjectPreviewBox
+          key={project.id || index}
+          project={project}
+          projectIndex={index}
+        />
+      ));
   }
 
   return (
@@ -54,16 +63,9 @@ function ProjectsPreview() {
         {RenderProjects()}
       </div>
 
-      <div className="flex justify-center items-center mb-10">
-        <a
-          href="/projects"
-          className="mb-8 px-6 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-semibold shadow"
-        >
-          See All Projects
-        </a>
-      </div>
-
-      {/* Add more content or components as needed */}
+      <NavigateButton to="/projects" className="mx-auto mb-10">
+        See All Projects
+      </NavigateButton>
     </div>
   );
 }

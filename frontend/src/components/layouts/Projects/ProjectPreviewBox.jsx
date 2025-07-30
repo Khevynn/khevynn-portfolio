@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-function ProjectPreviewBox({ project, projectIndex }) {
+function ProjectPreviewBox({ project }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   // Renders a single project preview box with expandable description
