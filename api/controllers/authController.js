@@ -56,7 +56,7 @@ router.get("/is-logged-in", async function (req, res, next) {
     const token = req.cookies?.authToken;
     if (!token) {
       console.log("No auth token found in cookies");
-      return res.status(401).send({ message: "User not logged in" });
+      return AuthUtils.RefreshTokensIfValid(req, res, next);
     }
 
     const user = await AuthUtils.verifyAuthToken(token);

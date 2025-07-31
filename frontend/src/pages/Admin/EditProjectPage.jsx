@@ -77,6 +77,11 @@ function FormRender({ project, navigate }) {
         hasDeleteButton={true}
         onDelete={onDelete}
       />
+      {updateError && (
+        <p className="text-red-500 mt-4">
+          Error updating project: {updateError.message}
+        </p>
+      )}
     </div>
   );
 }

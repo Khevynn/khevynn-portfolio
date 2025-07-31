@@ -14,7 +14,7 @@ module.exports.verifyAuth = async function (req, res, next) {
     const { accessToken, refreshToken } = extractTokens(req);
 
     // Check if access token exists
-    if (!accessToken) {
+    if (!accessToken && !refreshToken) {
       return sendError(res, 401, "Access denied. No token provided.");
     }
 

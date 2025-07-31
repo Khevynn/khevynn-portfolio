@@ -12,6 +12,9 @@ module.exports = {
     const usernameRegex = /^[a-zA-Z0-9_]{3,20}$/;
     return usernameRegex.test(username);
   },
+  isSameApiKey(apiKey) {
+    return apiKey === process.env.API_KEY;
+  },
   // Password handling methods
   async comparePassword(plainPassword, hashedPassword) {
     const bcrypt = require("bcrypt");
@@ -56,4 +59,28 @@ module.exports = {
       return null;
     }
   },
+
+  async RefreshTokensIfValid (req, res, next) {
+    try {
+      const token = req.cookies.refreshToken;
+      if (!token) {
+        return res.status(401).send({ message: "No refresh token provided" });
+      }
+
+      const user = await this.verifyRefreshToken(token);
+      if (!user) {
+        return res.status(401).send({ message: "Invalid refresh token" });
+      }
+
+      const newToken = await this.generateAuthToken(user);
+      res
+        .status(200)
+        .cookie("refreshToken", token, { httpOnly: true, secure: true })
+        .cookie("authToken", newToken, { httpOnly: true, secure: true })
+        .send({ message: "Token refreshed successfully" });
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("Internal Server Error");
+    }
+  }
 };

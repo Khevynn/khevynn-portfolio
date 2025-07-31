@@ -56,11 +56,13 @@ module.exports = {
     }
   },
 
-  async registerUser(data) {
+  async   registerUser(data) {
     try {
-      const existingUser = await UserRepository.findByEmail(data.email);
-      if (existingUser) {
-        return { status: 400, data: { message: "User already exists" } };
+      if(!AuthUtils.isValidEmail(data.email)) {
+        return {
+          status: 400,
+          data: { message: "Invalid email format" },
+        };
       }
 
       //Verify password strength
@@ -72,6 +74,18 @@ module.exports = {
               "Password must be at least 6 characters long and include uppercase, lowercase, number, and special character.",
           },
         };
+      }
+
+      if (!AuthUtils.isSameApiKey(data.api_key)) {
+        return {
+          status: 401,
+          data: { message: "Incorrect API Key" },
+        };
+      }
+
+      const existingUser = await UserRepository.findByEmail(data.email);
+      if (existingUser) {
+        return { status: 400, data: { message: "User already exists" } };
       }
 
       // Hash password
