@@ -22,6 +22,8 @@ app.use(
   })
 );
 
+console.log("CORS enabled for origin:", process.env.CORS_ORIGIN || "*");
+
 app.use("/api/projects", projectController);
 app.use("/api/auth", authController);
 
