@@ -41,12 +41,17 @@ module.exports = {
           {
             name: "authToken",
             value: await AuthUtils.generateAuthToken(user),
-            options: { httpOnly: true, secure: true },
+            options: {
+              httpOnly: true,
+              secure: true,
+              sameSite: "None",
+              maxAge: 1000 * 60 * 60, // 1 hour
+            },
           },
           {
             name: "refreshToken",
             value: await AuthUtils.generateRefreshToken(user),
-            options: { httpOnly: true, secure: true },
+            options: { httpOnly: true, secure: true, sameSite: "None" },
           },
         ],
       };
@@ -56,9 +61,9 @@ module.exports = {
     }
   },
 
-  async   registerUser(data) {
+  async registerUser(data) {
     try {
-      if(!AuthUtils.isValidEmail(data.email)) {
+      if (!AuthUtils.isValidEmail(data.email)) {
         return {
           status: 400,
           data: { message: "Invalid email format" },
