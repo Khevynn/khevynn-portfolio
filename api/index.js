@@ -27,6 +27,12 @@ console.log("CORS enabled for origin:", process.env.CORS_ORIGIN || "*");
 app.use("/api/projects", projectController);
 app.use("/api/auth", authController);
 
+app.get("/cors-test", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "https://khevynn-sa-portfolio.vercel.app");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.send("CORS funcionando");
+});
+
 // When we don't find anything
 app.use((req, res, next) => {
   console.error(`404 Not Found: ${req.originalUrl}`);
