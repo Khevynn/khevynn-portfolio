@@ -60,7 +60,7 @@ module.exports = {
     }
   },
 
-  async RefreshTokensIfValid (req, res, next) {
+  async RefreshTokensIfValid(req, res, next) {
     try {
       const token = req.cookies.refreshToken;
       if (!token) {
@@ -75,12 +75,20 @@ module.exports = {
       const newToken = await this.generateAuthToken(user);
       res
         .status(200)
-        .cookie("refreshToken", token, { httpOnly: true, secure: true })
-        .cookie("authToken", newToken, { httpOnly: true, secure: true })
+        .cookie("refreshToken", token, {
+          httpOnly: true,
+          secure: true,
+          sameSite: "None",
+        })
+        .cookie("authToken", newToken, {
+          httpOnly: true,
+          secure: true,
+          sameSite: "None",
+        })
         .send({ message: "Token refreshed successfully" });
     } catch (err) {
       console.log(err);
       res.status(500).send("Internal Server Error");
     }
-  }
+  },
 };
