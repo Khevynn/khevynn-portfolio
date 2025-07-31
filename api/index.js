@@ -15,7 +15,7 @@ const authController = require("./controllers/authController");
 const cors = require("cors");
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CORS_ORIGIN || "*", // Allow all origins or specify a specific one
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
