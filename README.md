@@ -70,7 +70,7 @@ frontend/    # React/Vite frontend
 
 ## Useful Scripts
 
-- `npm start` (backend): Starts the Express server.
+- `node index` (backend): Starts the Express server.
 - `npm run dev` (frontend): Starts Vite with hot reload.
 
 ## License
