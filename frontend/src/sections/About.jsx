@@ -1,4 +1,4 @@
-import myPhoto from "../assets/photo-khevynn.png";
+import myPhoto from "../assets/photo-khevynn-full-cropped.png";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useLayoutEffect } from "react";
@@ -31,14 +31,14 @@ function About() {
         About me
       </h1>
 
-      <div className="flex flex-col w-full gap-10 max-xl:items-center xl:pl-25 xl:gap-40 xl:flex-row xl:justify-start">
+      <div className="flex flex-col w-full h-full gap-10 max-xl:items-center xl:pl-25 xl:gap-40 xl:flex-row xl:justify-start">
         <img
           className="image-about h-[360px] w-[280px] translate-x-[100px] opacity-0 border-8 border-gray-50 md:h-[420px] md:w-[340px] xl:h-[480px] xl:w-[400px]"
           src={myPhoto}
           lg
           alt="My Photo 2"
         />
-        <div className="flex flex-col gap-4 max-lg:px-10 max-xl:justify-center">
+        <div className="flex flex-col min-h-full gap-4 max-lg:px-10 md:justify-center">
           <h1 className="text-2xl text-gray-300 font-bold max-xl:text-center">
             Behind the Code
           </h1>
