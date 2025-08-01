@@ -4,25 +4,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useLayoutEffect } from "react";
 
 function About() {
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to(".image-about", {
-      duration: 1,
-      opacity: 1,
-      scale: 1,
-      x: 0,
-      scrollTrigger: {
-        trigger: ".image-about",
-        start: "top 700px",
-        end: "bottom 800px",
-        scrub: true,
-      },
-    });
-
-    return () => {
-      gsap.killTweensOf(".info-box");
-    };
-  }, []);
   return (
     <div
       id="about"
@@ -34,7 +15,7 @@ function About() {
 
       <div className="flex flex-col h-full gap-10 max-xl:items-center xl:pl-25 xl:gap-40 xl:flex-row xl:justify-start">
         <img
-          className="image-about h-[360px] w-[280px] scale-0 opacity-0 border-8 border-gray-50 md:h-[420px] md:w-[340px] xl:h-[480px] xl:w-[400px]"
+          className="image-about h-[360px] w-[280px] border-8 border-gray-50 md:h-[420px] md:w-[340px] xl:h-[480px] xl:w-[400px]"
           src={myPhoto}
           lg
           alt="My Photo 2"
