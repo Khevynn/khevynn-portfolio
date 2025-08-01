@@ -5,21 +5,25 @@ function MainPanel() {
   return (
     <div
       id="mainPanel"
-      className="flex flex-col min-h-154 px-10 justify-around bg-gray-950 pt-20 md:gap-15 md:min-h-screen xl:px-50 xl:gap-40 md:flex-row"
+      className="flex flex-col min-h-154  px-2 sm:px-6 justify-around bg-gray-950 pt-20 md:gap-15 md:min-h-screen xl:px-50 xl:gap-40 md:flex-row"
     >
       <div className="flex items-center justify-center md:order-last">
-        <div className="relative h-[300px] w-[280px] max-md:top-10 md:h-[360px] md:w-[320px]">
+        <div className="relative h-[300px] w-full max-w-[280px] max-md:top-10 md:h-[360px] md:w-[320px] md:max-w-[320px]">
+          {/* Div cinza de fundo, sempre atrás da imagem */}
+          <div
+            className="absolute z-0 border-8 border-transparent bg-gray-800 top-5 left-0 h-[250px] w-[90%] md:h-[400px] md:w-[300px] max-lg:hidden rounded-lg mx-auto"
+            style={{ maxWidth: "100%" }}
+          ></div>
           <img
-            className="absolute z-10 h-[400px] min-w-[300px] border-8 border-emerald-500 max-lg:left-5 lg:left-0 lg:top-0 lg:h-[400px] lg:w-[300px]"
+            className="relative z-10 h-[300px] w-full min-w-[150px] max-w-full border-8 border-emerald-500 object-cover lg:h-[400px] lg:w-[300px] rounded-lg"
             src={myPhoto}
             alt="My Photo"
           />
-          <div class="absolute h-[400px] w-[300px] border-8 border-transparent bg-g ray-800 max-lg:top-10 lg:top-5 lg:bottom-0 lg:right-0 lg:h-[400px] lg:w-[300px]"></div>
         </div>
       </div>
 
       <div className="flex flex-col m-auto">
-        <div id="texts" className="flex flex-col gap-4 mt-55 mb-20 md:mt-20">
+        <div id="texts" className="flex flex-col gap-4 my-20">
           <h1 className="text-4xl text-center text-gray-200 font-bold text-pretty md:text-start md:text-5xl">
             Hi, I'm Khevynn &#128075;
           </h1>
