@@ -55,7 +55,7 @@ function ProjectForm({
 
   const handleImageChange = (e) => {
     const file = e?.target?.files?.[0];
-    console.log("🖼️ Selected file:", file);
+    console.log("Selected file:", file);
 
     if (!file) return;
 
@@ -66,14 +66,14 @@ function ProjectForm({
 
     // Check file size
     if (file.size > 5 * 1024 * 1024) {
-      console.error("❌ File too large");
+      console.error("File too large");
       return;
     }
 
     // Set new file and create blob URL for preview
     setValue("image", file);
     setValue("imageUrl", URL.createObjectURL(file));
-    console.log("✅ Image set successfully");
+    console.log("Image set successfully");
   };
 
   // Clean up blob URLs on unmount
@@ -86,7 +86,7 @@ function ProjectForm({
   }, [imageUrl]);
 
   const handleFormSubmit = (data) => {
-    console.log("📋 Form submitted with data:", data);
+    console.log("Form submitted with data:", data);
     onSubmit(data);
   };
 

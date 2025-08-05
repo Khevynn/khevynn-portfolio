@@ -58,7 +58,7 @@ function ProjectFullBox({ project, index }) {
   // Render action buttons (download & GitHub)
   const renderActions = () => (
     <div className="flex items-center gap-1 mt-auto">
-      {project.downloadUrl !== "none" && (
+      {project.downloadUrl !== "https://none" && (
         <a
           href={project.downloadUrl}
           className="inline-flex items-center cursor-pointer p-2 rounded text-gray-200 hover:bg-gray-600 transition-colors"
@@ -76,7 +76,7 @@ function ProjectFullBox({ project, index }) {
           </svg>
         </a>
       )}
-      {project.githubUrl !== "none" && (
+      {project.githubUrl !== "https://github.com/Khevynn/none" && (
         <a
           href={project.githubUrl}
           className="inline-flex items-center cursor-pointer p-2 rounded text-gray-200 hover:bg-gray-600 transition-colors"
