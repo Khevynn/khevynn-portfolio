@@ -12,7 +12,10 @@ function ProjectsPreview() {
         <div className="text-gray-400 text-sm font-thin h-64 text-center flex justify-center items-center">
           <Loading />
           <p className="ml-2">Loading projects...</p>
-          <p className="ml-2">It takes no more than a minute</p>
+          <br />
+          <p className="text-gray-500">
+            If that's your first time, this may take a few seconds
+          </p>
         </div>
       );
     }
