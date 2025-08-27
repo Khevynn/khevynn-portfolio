@@ -28,11 +28,11 @@ function MainPanel() {
             Hi, I'm Khevynn &#128075;
           </h1>
           <p className="text-lg text-center text-gray-300 md:text-justify">
-            I'm a game developer (Unity & Unreal Engine) with a focus on
+            I'm a web and game developer (Unity & Unreal Engine) with a focus on
             crafting immersive, responsive, and visually engaging interactive
-            experiences. Whether it's fast-paced gameplay, atmospheric
-            environments, or tight gameplay mechanics, I aim to build games that
-            not only perform well but also leave an impact.
+            experiences. From dynamic web applications to atmospheric game
+            environments and tight gameplay mechanics, I aim to build projects
+            that not only perform well but also leave a lasting impact.
           </p>
         </div>
         <div

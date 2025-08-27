@@ -64,7 +64,7 @@ function Contact() {
 
       <div className="flex flex-col mb-20 items-center gap-5 max-md:justify-center">
         <p className="text-center text-lg text-gray-400 max-w-200">
-          You can also find me in those places:
+          You can also find me in these places:
         </p>
 
         <SocialIcons />

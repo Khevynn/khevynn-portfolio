@@ -25,32 +25,52 @@ function About() {
             Behind the Code
           </h1>
           <p className="text-lg text-gray-300 max-md:text-center md:text-justify lg:pr-10">
-            I'm a game developer{" "}
+            I'm both a web and game developer{" "}
             <span className="underline underline-offset-4">
               recently graduated
             </span>{" "}
-            with a degree in Game Development, specializing in{" "}
-            <span className="underline underline-offset-4">Unity</span> and
+            with a degree in Games. I specialize in{" "}
+            <span className="underline underline-offset-4">Unity</span>,
             exploring{" "}
-            <span className="underline underline-offset-4">Unreal Engine</span>
-            . During my academic journey, I worked on projects focused on
-            gameplay programming, system design, and level creation, both
-            individually and in small teams.
-            <br />
-            <br />
-            I'm particularly interested in crafting{" "}
+            <span className="underline underline-offset-4">Unreal Engine</span>,
+            and building{" "}
             <span className="underline underline-offset-4">
-              responsive, immersive player experiences
+              modern web applications
             </span>{" "}
-            and solving the technical and creative challenges that come with
-            game development. I enjoy working with{" "}
-            <span className="underline underline-offset-4">C#</span>, designing
-            gameplay mechanics, and building well-structured, maintainable
-            systems.
+            with JavaScript, React, and Node.js. Throughout my journey, I’ve
+            worked on{" "}
+            <span className="underline underline-offset-4">
+              gameplay programming, system design, and level creation
+            </span>{" "}
+            as well as{" "}
+            <span className="underline underline-offset-4">
+              interactive, user-focused web projects
+            </span>
+            .
             <br />
             <br />
-            I’m eager to grow as a developer, contribute to exciting projects,
-            and keep learning as I step into the industry.
+            I’m particularly interested in crafting{" "}
+            <span className="underline underline-offset-4">
+              responsive, immersive experiences
+            </span>{" "}
+            across both games and the web, and solving the technical and
+            creative challenges that come with them. I enjoy working with{" "}
+            <span className="underline underline-offset-4">C#</span>,{" "}
+            <span className="underline underline-offset-4">JavaScript</span>,
+            and <span className="underline underline-offset-4">React</span>,
+            always aiming to build{" "}
+            <span className="underline underline-offset-4">
+              clean, maintainable, and scalable systems
+            </span>
+            .
+            <br />
+            <br />
+            I’m eager to grow as a developer, contribute to{" "}
+            <span className="underline underline-offset-4">
+              innovative projects
+            </span>{" "}
+            in both web and games, and keep learning as I step into the
+            industry.
           </p>
         </div>
       </div>
