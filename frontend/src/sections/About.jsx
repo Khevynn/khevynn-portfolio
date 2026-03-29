@@ -31,7 +31,7 @@ function About() {
   return (
     <section
       id="about"
-      className="relative flex flex-col py-16 sm:py-24 px-5 sm:px-8 md:px-12 max-w-7xl mx-auto overflow-hidden border-t border-white/5"
+      className="relative flex flex-col py-16 sm:py-24 overflow-hidden border-t border-white/5"
     >
       {/* Section header */}
       <div className="mb-10 sm:mb-16">

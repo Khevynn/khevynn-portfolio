@@ -46,7 +46,7 @@ function MainPanel() {
   return (
     <section
       id="mainPanel"
-      className="relative flex flex-col min-h-svh px-5 sm:px-8 justify-center pt-28 pb-12 md:flex-row md:items-center md:gap-8 lg:gap-12 max-w-7xl mx-auto xl:px-0 overflow-hidden"
+      className="relative flex flex-col min-h-svh justify-center pt-28 pb-12 md:flex-row md:items-center md:gap-8 lg:gap-12 overflow-hidden"
     >
       {/* Background ambient glow — contained with overflow-hidden on section */}
       <div className="absolute top-1/3 left-0 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />

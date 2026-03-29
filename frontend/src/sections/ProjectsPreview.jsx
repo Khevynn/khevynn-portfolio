@@ -46,18 +46,18 @@ function ProjectsPreview() {
   return (
     <section
       id="projects-preview"
-      className="relative flex flex-col py-24 w-full max-w-7xl mx-auto px-6 overflow-hidden border-t border-white/5"
+      className="relative flex flex-col py-16 sm:py-24 overflow-hidden border-t border-white/5"
     >
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 sm:mb-12">
         <div>
-          <h2 className="text-sm font-inter text-emerald-400 tracking-[0.2em] uppercase mb-3 font-semibold">
+          <h2 className="text-xs sm:text-sm font-inter text-emerald-400 tracking-[0.2em] uppercase mb-3 font-semibold">
             Portfolio
           </h2>
-          <h1 className="text-4xl md:text-5xl font-extrabold font-outfit text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-outfit text-white">
             Featured Projects
           </h1>
-          <p className="text-base text-zinc-400 mt-4 max-w-xl font-inter leading-relaxed">
+          <p className="text-sm sm:text-base text-zinc-400 mt-4 max-w-xl font-inter leading-relaxed">
             A selection of recent work spanning scalable backend systems, AI tools, and interactive game experiences.
           </p>
         </div>

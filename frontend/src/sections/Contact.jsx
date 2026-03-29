@@ -17,7 +17,7 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="relative flex flex-col py-16 sm:py-24 w-full max-w-7xl mx-auto px-5 sm:px-8 overflow-hidden border-t border-white/5"
+      className="relative flex flex-col py-16 sm:py-24 overflow-hidden border-t border-white/5"
     >
       <div className="mb-10 sm:mb-16">
         <h2 className="text-xs sm:text-sm font-inter text-emerald-400 tracking-[0.2em] uppercase mb-3 font-semibold">
