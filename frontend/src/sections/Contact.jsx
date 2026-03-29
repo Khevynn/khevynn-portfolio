@@ -1,75 +1,83 @@
 import SocialIcons from "../components/layouts/SocialIcons";
+import { useState } from "react";
+import { Check, Mail, Smartphone, Code2 } from "lucide-react";
 
 function Contact() {
-  let email = "tgwinter@proton.me";
-  let phone = "+351 935 784 446";
+  const email = "tgwinter@proton.me";
+  const phone = "+351 935 784 446";
+  const [copied, setCopied] = useState(false);
 
   function CopyToClipBoard(text) {
     navigator.clipboard.writeText(text).then(() => {
-      alert("Copied to clipboard: " + text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     });
   }
 
   return (
-    <div
+    <section
       id="contact"
-      className="flex flex-col items-center px-5 min-h-100 bg-gray-900 gap-7 max-md:pb-10 md:px-50"
+      className="relative flex flex-col py-16 sm:py-24 w-full max-w-7xl mx-auto px-5 sm:px-8 overflow-hidden border-t border-white/5"
     >
-      <h1 className="mt-10 text-center text-3xl text-gray-200 font-extrabold">
-        What's Next?
-      </h1>
+      <div className="mb-10 sm:mb-16">
+        <h2 className="text-xs sm:text-sm font-inter text-emerald-400 tracking-[0.2em] uppercase mb-3 font-semibold">
+          Get In Touch
+        </h2>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-outfit text-white">
+          Let's Build Something <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-sky-400">Great</span>
+        </h1>
+        <p className="text-sm sm:text-base lg:text-lg text-zinc-400 mt-4 max-w-xl font-inter leading-relaxed">
+          I am actively looking for new opportunities as a Backend or Game Developer in remote or hybrid environments. My inbox is always open.
+        </p>
+      </div>
 
-      <p className="text-center text-lg text-gray-400 md:max-w-200">
-        Whether you're looking for a developer, have a question, or just want to
-        connect, feel free to reach out. I'm always open to new opportunities
-        and conversations.
-      </p>
-
-      <div className="flex flex-col items-center gap-5 max-md:justify-center lg:flex-row">
+      {/* Contact details */}
+      <div className="flex flex-col md:flex-row gap-4 sm:gap-6 mb-12 sm:mb-16 z-10 w-full">
         <a
           href={`mailto:${email}`}
-          className="flex items-center gap-2 rounded-full bg-emerald-500 px-5 py-3 text-gray-200 transition-all duration-300 hover:bg-emerald-700"
+          className="group flex flex-1 items-center gap-5 bg-white/[0.02] border border-white/5 px-6 lg:px-8 py-6 rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.04] hover:border-emerald-500/30 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] relative overflow-hidden"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="currentColor"
-            class="bi bi-envelope"
-            viewBox="0 0 16 16"
-          >
-            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
-          </svg>
-          <span>{email}</span>
+          <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-emerald-500/10 blur-[50px] group-hover:bg-emerald-500/20 transition-all pointer-events-none" />
+          <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover:scale-110 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 transition-all">
+            <Mail size={24} className="text-emerald-400" strokeWidth={1.5} />
+          </div>
+          <div className="flex flex-col gap-0.5 relative z-10 min-w-0">
+            <span className="text-xs text-zinc-500 font-inter font-semibold uppercase tracking-widest">Email Address</span>
+            <span className="font-outfit text-base sm:text-xl font-semibold text-zinc-200 truncate">{email}</span>
+          </div>
         </a>
 
         <button
           onClick={() => CopyToClipBoard(phone)}
-          className="flex items-center gap-2 cursor-pointer rounded-full bg-emerald-500 px-5 py-3 text-gray-200 transition-all duration-300 hover:bg-emerald-700"
+          className="group flex flex-1 items-center gap-5 cursor-pointer bg-white/[0.02] border border-white/5 px-6 lg:px-8 py-6 rounded-3xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.04] hover:border-emerald-500/30 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] relative overflow-hidden text-left"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="currentColor"
-            class="bi bi-phone"
-            viewBox="0 0 16 16"
-          >
-            <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
-            <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
-          </svg>
-          <span>{phone}</span>
+          <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-sky-500/10 blur-[50px] group-hover:bg-emerald-500/20 transition-all pointer-events-none" />
+          <div className="p-4 rounded-2xl bg-white/5 border border-white/10 group-hover:scale-110 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 transition-all">
+            <Smartphone size={24} className="text-emerald-400" strokeWidth={1.5} />
+          </div>
+          <div className="flex flex-col gap-1 relative z-10">
+            <span className="text-xs text-zinc-500 font-inter font-semibold uppercase tracking-widest">Phone Number</span>
+            <span className="font-outfit text-xl font-semibold text-zinc-200 flex items-center gap-2">
+              {copied
+                ? <><Check size={20} className="text-emerald-400" />Copied to clipboard!</>
+                : phone}
+            </span>
+          </div>
         </button>
       </div>
 
-      <div className="flex flex-col mb-20 items-center gap-5 max-md:justify-center">
-        <p className="text-center text-lg text-gray-400 max-w-200">
-          You can also find me in these places:
+      {/* Social links */}
+      <div className="flex flex-col items-center justify-center p-8 bg-[#0a0a0a] border border-white/5 rounded-3xl relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-emerald-500/5 via-violet-500/5 to-sky-500/5 opacity-50 pointer-events-none" />
+        <Code2 size={24} className="text-zinc-600 mb-4" strokeWidth={1.5} />
+        <p className="text-sm text-zinc-400 font-inter font-medium uppercase tracking-widest mb-6 relative z-10">
+          Also find me on
         </p>
-
-        <SocialIcons />
+        <div className="relative z-10">
+          <SocialIcons />
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

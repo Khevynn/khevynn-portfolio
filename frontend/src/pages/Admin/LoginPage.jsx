@@ -28,13 +28,13 @@ function LoginPage() {
   }, [status]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-950">
-      <AuthForm onSubmit={handleSubmit(HandleLogin)} title="Login">
+    <div className="min-h-screen bg-[#050505] relative">
+      <AuthForm onSubmit={handleSubmit(HandleLogin)} title="Admin Login">
         <Input
           id="email"
           name="email"
           type="email"
-          label="Email"
+          label="Email Address"
           placeholder="Enter your email"
           error={errors.email?.message}
           {...register("email", {
@@ -42,14 +42,6 @@ function LoginPage() {
             pattern: {
               value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
               message: "Invalid email address",
-            },
-            maxLength: {
-              value: 100,
-              message: "Email must be less than 100 characters",
-            },
-            minLength: {
-              value: 5,
-              message: "Email must be at least 5 characters",
             },
           })}
         />
@@ -62,10 +54,6 @@ function LoginPage() {
           error={errors.password?.message}
           {...register("password", {
             required: "Password is required",
-            maxLength: {
-              value: 100,
-              message: "Password must be less than 100 characters",
-            },
             minLength: {
               value: 6,
               message: "Password must be at least 6 characters",
@@ -73,22 +61,25 @@ function LoginPage() {
           })}
         />
 
-        <div className="text-white text-sm font-thin h-[50px] text-center flex justify-center items-center">
-          {isPending ? <Loading /> : status.message}
+        <div className="text-zinc-400 text-sm font-inter h-[40px] text-center flex justify-center items-center">
+          {isPending ? <Loading /> : (
+            <span className={status.success ? "text-emerald-400" : "text-red-400"}>
+              {status.message}
+            </span>
+          )}
         </div>
 
-        <Button type="submit" className="w-full">
-          Login
+        <Button type="submit" disabled={isPending} className="w-full">
+          Sign In
         </Button>
 
-        <div className="text-center">
-          <span className="text-gray-300 justify-center">
-            Don't have an account? Register{" "}
-            <a href="/admin/register" className="text-blue-500 hover:underline">
-              here
+        <div className="text-center mt-2">
+          <p className="text-zinc-500 text-sm font-inter">
+            Don't have an account?{" "}
+            <a href="/admin/register" className="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">
+              Create one
             </a>
-            !
-          </span>
+          </p>
         </div>
       </AuthForm>
     </div>

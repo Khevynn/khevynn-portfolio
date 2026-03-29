@@ -1,21 +1,19 @@
 function Input({ error, label, className, ...rest }) {
   return (
-    <div className="text-gray-300 mb-4">
-      {(() => {
-        return (
-          <label className="block text-gray-300 mb-2" htmlFor={rest.id}>
-            {label}
-          </label>
-        );
-      })()}
+    <div className="flex flex-col gap-2 w-full">
+      {label && (
+        <label className="text-sm font-inter font-semibold text-zinc-400 tracking-wide uppercase" htmlFor={rest.id}>
+          {label}
+        </label>
+      )}
 
       <input
-        className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-          error ? "border-red-500" : "border-gray-300"
+        className={`w-full px-4 py-3 bg-white/[0.03] border rounded-xl font-inter text-zinc-100 placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all ${
+          error ? "border-red-500/50 bg-red-500/5" : "border-white/10 focus:border-emerald-500/50"
         } ${className}`}
         {...rest}
       />
-      <p className="text-red-500 text-sm">{error}</p>
+      {error && <p className="text-red-500 text-xs font-medium ml-1">{error}</p>}
     </div>
   );
 }

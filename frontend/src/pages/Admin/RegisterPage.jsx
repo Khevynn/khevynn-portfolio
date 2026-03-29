@@ -32,33 +32,25 @@ const { status, mutate, isPending, data } = useAuth(
 
   return (
     <>
-    {isPending && <LoadingScreen text="Registering..." />}
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-950">
-      <AuthForm title="Register" onSubmit={handleSubmit(HandleRegister)}>
+    {isPending && <LoadingScreen text="Creating Account..." />}
+    <div className="min-h-screen bg-[#050505] relative">
+      <AuthForm title="Register Admin" onSubmit={handleSubmit(HandleRegister)}>
         <Input
           id="api_key"
           name="api_key"
           type="password"
-          label="Api Key"
-          placeholder="Enter the API Key"
+          label="Invitation Key"
+          placeholder="Enter the security key"
           error={errors.api_key?.message}
           {...register("api_key", {
             required: "Api Key is required",
-            maxLength: {
-              value: 100,
-              message: "Api Key must be less than 100 characters",
-            },
-            minLength: {
-              value: 6,
-              message: "Api Key must be at least 6 characters",
-            },
           })}
         />
         <Input
           id="email"
           name="email"
           type="email"
-          label="Email"
+          label="Email Address"
           placeholder="Enter your email"
           error={errors.email?.message}
           {...register("email", {
@@ -67,14 +59,6 @@ const { status, mutate, isPending, data } = useAuth(
               value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
               message: "Invalid email address",
             },
-            maxLength: {
-              value: 100,
-              message: "Email must be less than 100 characters",
-            },
-            minLength: {
-              value: 5,
-              message: "Email must be at least 5 characters",
-            },
           })}
         />
         <Input
@@ -82,14 +66,10 @@ const { status, mutate, isPending, data } = useAuth(
           name="password"
           type="password"
           label="Password"
-          placeholder="Enter your password"
+          placeholder="Create a strong password"
           error={errors.password?.message}
           {...register("password", {
             required: "Password is required",
-            maxLength: {
-              value: 100,
-              message: "Password must be less than 100 characters",
-            },
             minLength: {
               value: 6,
               message: "Password must be at least 6 characters",
@@ -97,27 +77,29 @@ const { status, mutate, isPending, data } = useAuth(
           })}
         />
 
-        <div className="text-white text-sm font-thin h-[50px] text-center flex justify-center items-center">
-          {isPending ? <Loading /> : status.message}
+        <div className="text-zinc-400 text-sm font-inter h-[40px] text-center flex justify-center items-center">
+          {isPending ? <Loading /> : (
+            <span className={status.success ? "text-emerald-400" : "text-red-400"}>
+              {status.message}
+            </span>
+          )}
         </div>
 
-        <Button type="submit" className="w-full">
-          Register
+        <Button type="submit" disabled={isPending} className="w-full">
+          Create Account
         </Button>
 
-        <div className="text-center">
-          <span className="text-gray-300">
-            Already have an account? Login{" "}
-            <a href="/admin/login" className="text-blue-500 hover:underline">
-              here
+        <div className="text-center mt-2">
+          <p className="text-zinc-500 text-sm font-inter">
+            Already have an account?{" "}
+            <a href="/admin/login" className="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">
+              Sign In
             </a>
-            !
-          </span>
+          </p>
         </div>
       </AuthForm>
     </div>
     </>
-    
   );
 }
 export default RegisterPage;

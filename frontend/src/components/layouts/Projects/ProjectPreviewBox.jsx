@@ -1,71 +1,74 @@
-import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 
-function ProjectPreviewBox({ project }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  // Renders a single project preview box with expandable description
+function ProjectPreviewBox({ project, onClick }) {
   return (
-    <a
-      href={`/projects#${project.id}`}
+    <button
+      onClick={() => onClick(project)}
       id={`project-${project.id}`}
-      className="group shrink bg-gray-700 rounded-2xl min-h-80 overflow-hidden hover:scale-[1.03] hover:shadow-2xl hover:border-gray-400 transition-all cursor-pointer shadow-xl border border-gray-600 sm:w-100 max-lg:mx-5"
+      className="text-left group flex flex-col bg-[#0a0a0a] border border-white/5 rounded-3xl overflow-hidden hover:-translate-y-1 hover:border-emerald-500/30 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all duration-300 w-full relative h-full"
     >
-      {/* Project Image & Title */}
-      <div className="flex flex-col items-center justify-center bg-gray-800 py-4 gap-5 border-b border-gray-600">
+      {/* Decorative hover gradient */}
+      <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/10 blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+      {/* Image */}
+      <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#050505] border-b border-white/5 shrink-0">
         <img
-          src={project.imageUrl}
+          src={project.imageUrl || "https://placehold.co/600x340/1e293b/64748b?text=No+Image"}
           alt={project.name}
-          className="rounded-4xl w-[320px] h-[200px] object-cover"
+          className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-70 group-hover:opacity-100"
         />
-        <h1 className="text-gray-200 text-xl font-bold">{project.name}</h1>
-        {/* Technologies Used */}
-        <div className="flex flex-wrap justify-center items-center gap-2 mt-1">
-          {project.usedTechnologies.split(",").map((tech, idx) => (
+        {/* Status badge over image */}
+        {project.status && (
+          <div className="absolute top-3 right-3 z-10">
+            <StatusBadge status={project.status} />
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col p-6 lg:p-7 flex-1 relative z-10">
+        {/* Tech tags */}
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.usedTechnologies?.split(",").slice(0, 4).map((tech, idx) => (
             <span
               key={tech.trim() + idx}
-              className="text-gray-300 text-sm bg-gray-600 px-2 py-1 rounded"
+              className="text-[0.7rem] font-inter font-semibold tracking-wider uppercase text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded backdrop-blur-sm"
             >
               {tech.trim()}
             </span>
           ))}
         </div>
+
+        <h2 className="text-zinc-100 font-outfit text-2xl font-bold mb-3 group-hover:text-white transition-colors">
+          {project.name}
+        </h2>
+
+        <p className="font-inter text-zinc-400 text-sm leading-relaxed line-clamp-2 flex-1">
+          {project.description}
+        </p>
       </div>
 
-      {/* Project Description (Expandable) */}
-      <div
-        className={`p-2 flex flex-col transition-all ${
-          isExpanded ? "" : "max-h-40 overflow-hidden"
-        }`}
-      >
-        <p className="text-gray-300 px-4 py-2">{project.description}</p>
+      {/* Footer */}
+      <div className="w-full px-6 py-5 border-t border-white/5 flex items-center justify-between group-hover:bg-white/[0.02] transition-colors mt-auto shrink-0">
+        <span className="text-xs font-inter font-medium text-zinc-500 group-hover:text-emerald-400 transition-colors uppercase tracking-widest">
+          View Details
+        </span>
+        <ArrowRight size={16} className="text-zinc-600 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
       </div>
+    </button>
+  );
+}
 
-      {/* Expand/Collapse Button */}
-      <div className="flex justify-center mb-4">
-        <button
-          onClick={() => setIsExpanded((prev) => !prev)}
-          className="focus:outline-none text-gray-300 hover:text-gray-200 transition-colors"
-          aria-label={isExpanded ? "Collapse" : "Expand"}
-        >
-          <svg
-            className={`w-6 h-6 transition-transform duration-200 ${
-              isExpanded ? "rotate-180" : ""
-            }`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </button>
-      </div>
-    </a>
+function StatusBadge({ status }) {
+  const map = {
+    Completed: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+    "In Progress": "bg-amber-500/20 text-amber-300 border-amber-500/30",
+  };
+  const cls = map[status] || "bg-white/10 text-zinc-300 border-white/20";
+  return (
+    <span className={`text-[10px] uppercase font-inter font-bold tracking-widest px-3 py-1.5 rounded-full border backdrop-blur-md shadow-lg ${cls}`}>
+      {status}
+    </span>
   );
 }
 

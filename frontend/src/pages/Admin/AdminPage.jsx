@@ -1,84 +1,91 @@
 import { useQuery } from "@tanstack/react-query";
 import { useProjects } from "../../hooks/useProjects";
 import axios from "axios";
+import { Plus, LayoutGrid, LogOut, ArrowLeft } from "lucide-react";
 
 import Loading from "../../components/ui/Loading";
 import ProjectEditBox from "../../components/layouts/Projects/ProjectEditBox";
 import Button from "../../components/ui/Button";
 import NavigateButton from "../../components/ui/NavigateButton";
 
-/* Sub-Components for Admin page */
 function EditProjectList() {
   const { data: projects, isLoading, error } = useProjects("");
 
-  /* Loading */
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-64">
+      <div className="flex flex-col justify-center items-center h-96 gap-4">
         <Loading />
-      </div>
-    );
-  }
-  /* Error */
-  if (error) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <p className="text-red-500">Error loading projects</p>
+        <p className="text-zinc-500 font-inter text-sm">Fetching projects...</p>
       </div>
     );
   }
 
-  // CRITICAL FIX: Ensure projects is always an array
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-64 bg-red-500/5 border border-red-500/20 rounded-3xl p-8">
+        <p className="text-red-400 font-inter font-medium text-center">
+          Error loading projects: {error.message}
+        </p>
+      </div>
+    );
+  }
+
   const projectsArray = Array.isArray(projects) ? projects : [];
 
   if (projectsArray.length === 0) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <p className="text-gray-400">No projects available.</p>
+      <div className="flex flex-col justify-center items-center h-64 border-2 border-dashed border-white/5 rounded-3xl">
+        <p className="text-zinc-500 font-inter">No projects found. Start by creating one!</p>
       </div>
     );
   }
 
-  /* Projects */
   return (
-    <div className="flex gap-6 flex-wrap max-w-7xl justify-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {projectsArray.map((project, index) => (
-        <ProjectEditBox key={index} project={project} />
+        <ProjectEditBox key={project.id || index} project={project} />
       ))}
     </div>
   );
 }
+
 function Header() {
+  const handleLogout = async () => {
+    // Basic logout logic or redirection
+    window.location.href = "/admin/login";
+  };
+
   return (
-    <header className="w-full max-w-7xl flex flex-col gap-2 mt-8 mb-6">
-      <div className="w-full flex items-center justify-between">
-        <NavigateButton
-          to={"/"}
-          className="bg-gray-800 hover:bg-gray-700 text-white"
-        >
-          ← Back to Main Page
-        </NavigateButton>
+    <header className="w-full flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+      <div className="flex flex-col gap-1">
+        <div className="flex items-center gap-2 text-emerald-400 text-xs font-inter font-bold uppercase tracking-[0.2em] mb-2">
+          <LayoutGrid size={14} />
+          Management
+        </div>
+        <h1 className="text-4xl font-outfit font-extrabold text-white">Admin Panel</h1>
+        <p className="text-zinc-500 font-inter">Manage your professional portfolio and experiences.</p>
       </div>
-      <div className="flex flex-col items-center w-full">
-        <h1 className="text-4xl font-bold text-gray-100">Admin Panel</h1>
-        <p className="text-gray-400 text-lg">
-          Manage your projects efficiently from this dashboard.
-        </p>
+
+      <div className="flex items-center gap-3">
+        <NavigateButton
+          to="/"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/5 bg-white/[0.02] text-zinc-400 font-inter text-sm hover:text-white hover:bg-white/5 transition-all"
+        >
+          <ArrowLeft size={16} />
+          Site Preview
+        </NavigateButton>
+        <button
+          onClick={handleLogout}
+          className="p-2.5 rounded-xl border border-red-500/20 bg-red-500/5 text-red-400 hover:bg-red-500/20 transition-all"
+          title="Logout"
+        >
+          <LogOut size={20} />
+        </button>
       </div>
     </header>
   );
 }
-function Footer() {
-  return (
-    <footer className="text-center py-4 text-sm bg-gray-950 mt-6">
-      <p className="text-gray-500">
-        © {new Date().getFullYear()} Khevynn Sá. All rights reserved.
-      </p>
-    </footer>
-  );
-}
 
-/* Main Admin Page */
 function AdminPage() {
   const {
     data: loginData,
@@ -100,24 +107,46 @@ function AdminPage() {
         throw err;
       }
     },
+    retry: false,
   });
 
-  if (isLoadingLogin) return <div>Loading...</div>;
-  if (loginError) return <div>Error: {loginError.message}</div>;
+  if (isLoadingLogin) return (
+    <div className="min-h-screen bg-[#050505] flex items-center justify-center">
+       <Loading />
+    </div>
+  );
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 to-gray-950">
-      <Header />
-      <div className="my-6">
-        <Button
-          onClick={() => (window.location.href = "/admin/create")}
-          className="bg-blue-600 hover:bg-blue-700 text-white"
-        >
-          Create New Project
-        </Button>
-      </div>
-      <EditProjectList />
-      <Footer />
+    <div className="min-h-screen bg-[#050505] text-zinc-100 relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.05] pointer-events-none" />
+      
+      <main className="relative z-10 max-w-7xl mx-auto px-6 py-20">
+        <Header />
+
+        <div className="mb-10 flex items-center justify-between border-b border-white/5 pb-8">
+           <h2 className="text-xl font-outfit font-bold text-white flex items-center gap-3">
+             Projects Hub
+             <span className="text-xs bg-emerald-500/10 text-emerald-400 px-2.5 py-1 rounded-full border border-emerald-500/20">Live</span>
+           </h2>
+           <Button
+             onClick={() => (window.location.href = "/admin/create")}
+             className="flex items-center gap-2"
+           >
+             <Plus size={18} />
+             Create New
+           </Button>
+        </div>
+
+        <EditProjectList />
+      </main>
+
+      <footer className="relative z-10 border-t border-white/5 py-10 mt-20">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-zinc-600 text-sm font-inter">
+            &copy; {new Date().getFullYear()} Khevynn Sá. Admin Control.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

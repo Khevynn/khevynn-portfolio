@@ -1,61 +1,37 @@
 import InfoBox from "../components/layouts/EducationBox";
 import ProgrammingCourseImage from "../assets/programming-course.png";
 import IadePhoto from "../assets/iade-photo.png";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useLayoutEffect } from "react";
 
 function Education() {
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to(".info-box", {
-      duration: 1,
-      opacity: 1,
-      y: 0,
-      scrollTrigger: {
-        trigger: ".info-box",
-        start: "top 700px",
-        end: "bottom 900px",
-        scrub: true,
-      },
-    });
-
-    return () => {
-      gsap.killTweensOf(".info-box");
-    };
-  }, []);
-
   return (
-    <div className="flex flex-col min-h-142 bg-gray-900 gap-10 max-md:pb-10 lg:px-10 xl:px-30 2xl:px-50">
-      <h1 className="mt-10 text-center text-3xl text-gray-200 font-extrabold">
-        Education
-      </h1>
-
-      <div className="flex flex-col justify-around items-start gap-10 text-gray-300 mb-10 max-md:justify-center lg:flex-row">
-        <div className="info-box w-full h-full translate-y-[150px] opacity-0">
-          <InfoBox
-            title="Bachelor in Games Development"
-            provider="IADE - European University"
-            location="Lisbon, Portugal"
-            description="Higher education course focused on the creation and programming of video games,
-           covering design, artificial intelligence, 3D modeling, animation and interactive software 
-           development. Includes practical projects and teamwork, preparing students to work in the 
-           video game industry."
-            image={IadePhoto}
-          />
-        </div>
-
-        <div className="info-box w-full h-full translate-y-[150px] opacity-0">
-          <InfoBox
-            title="Professional Course - Computer Programmer"
-            provider="AGMRA"
-            location="Cascais, Portugal"
-            description="Dual-certified course focused on software development, covering programming logic, database management, and practical training in Java, C#, and Python. Projects included desktop and web app development, as well as hands-on work with MySQL for modeling and SQL queries. Included a real-world internship (FCT) to consolidate technical skills."
-            image={ProgrammingCourseImage}
-          />
-        </div>
+    <section className="relative flex flex-col py-24 w-full max-w-7xl mx-auto px-6 overflow-hidden border-t border-white/5">
+      <div className="mb-16">
+        <h2 className="text-sm font-inter text-emerald-400 tracking-[0.2em] uppercase mb-3 font-semibold">Academic Background</h2>
+        <h1 className="text-4xl md:text-5xl font-extrabold font-outfit text-white">
+          Education
+        </h1>
       </div>
-    </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 w-full z-10">
+        <InfoBox
+          title="Bachelor in Games Development"
+          provider="IADE - European University"
+          location="Lisbon, Portugal"
+          period="2022 – 2025"
+          description="Higher education course focused on the creation and programming of video games, covering design, artificial intelligence, 3D modeling, animation and interactive software development. Includes practical projects and teamwork, preparing students to work in the video game industry."
+          image={IadePhoto}
+        />
+
+        <InfoBox
+          title="Professional Course – Computer Programmer"
+          provider="AGMRA"
+          location="Cascais, Portugal"
+          period="2019 – 2022"
+          description="Dual-certified course focused on software development, covering programming logic, database management, and practical training in Java, C#, and Python. Projects included desktop and web app development, as well as hands-on work with MySQL for modeling and SQL queries. Included a real-world internship (FCT) to consolidate technical skills."
+          image={ProgrammingCourseImage}
+        />
+      </div>
+    </section>
   );
 }
 

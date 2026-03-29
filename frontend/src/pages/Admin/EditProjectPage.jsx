@@ -5,125 +5,81 @@ import {
   useDeleteProject,
 } from "../../hooks/useProjects";
 import { useParams } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 import LoadingScreen from "../../components/layouts/LoadingScreen";
 import ProjectForm from "../../components/layouts/ProjectForm";
 import NavigateButton from "../../components/ui/NavigateButton";
 
-function Header() {
-  return (
-    <h1 className="text-2xl text-gray-300 font-bold mt-15 mb-6">
-      Edit Project
-    </h1>
-  );
-}
-
-function FormRender({ project, navigate }) {
-  const { mutate, isPending, error: updateError } = useUpdateProject();
+function EditProjectPage() {
+  const navigate = useNavigate();
+  const { projectId } = useParams();
+  const { data: project, isLoading, error } = useProjects(`/${projectId}`);
+  
+  const { mutate: updateProject, isPending: isUpdating, error: updateError } = useUpdateProject();
   const { mutate: deleteProject, isPending: isDeleting } = useDeleteProject();
 
-  const onSubmit = (data) => {
-    if (data.image && data.image.size > 5 * 1024 * 1024) {
-      console.error("File too large");
-      return;
-    }
-
+  const onUpdate = (data) => {
     const projectData = {
       ...data,
       image: data.image ? data.image : null,
     };
 
-    mutate(
-      {
-        id: project.id,
-        projectData,
-      },
-      {
-        onSuccess: (data) => {
-          console.log("Update successful:", data);
-          navigate(`/admin/dashboard`);
-        },
-        onError: (error) => {
-          console.error("Update failed:", error);
-        },
-      }
+    updateProject(
+      { id: project.id, projectData },
+      { onSuccess: () => navigate(`/admin/dashboard`) }
     );
   };
+
   const onDelete = () => {
     if (window.confirm("Are you sure you want to delete this project?")) {
       deleteProject(
         { id: project.id, projectData: null },
-        {
-          onSuccess: () => {
-            console.log("Project deleted successfully");
-            navigate(`/admin/dashboard`);
-          },
-          onError: (error) => {
-            console.error("Delete failed:", error);
-          },
-        }
+        { onSuccess: () => navigate(`/admin/dashboard`) }
       );
     }
   };
 
-  return (
-    <div>
-      {isPending && <LoadingScreen text="Updating project..." />}
-      {isDeleting && <LoadingScreen text="Deleting project..." />}
-      <ProjectForm
-        onSubmit={onSubmit}
-        isPending={isPending}
-        project={project}
-        hasDeleteButton={true}
-        onDelete={onDelete}
-      />
-      {updateError && (
-        <p className="text-red-500 mt-4">
-          Error updating project: {updateError.message}
-        </p>
-      )}
+  if (isLoading) return (
+    <div className="min-h-screen bg-[#050505] flex items-center justify-center">
+      <LoadingScreen text="Loading project details..." />
     </div>
   );
-}
-
-function EditProjectPage() {
-  const navigate = useNavigate();
-  const { projectId } = useParams();
-  const { data: project, isLoading, error } = useProjects(`/${projectId}`);
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gradient-to-br from-gray-900 to-gray-950 py-12 px-4">
-      <div className="w-full max-w-3xl">
-        <div className="relative flex items-center mb-8">
-          <NavigateButton
-            to="/admin/dashboard"
-            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors px-3 py-2 rounded-lg bg-gray-800 hover:bg-gray-700 shadow"
-            aria-label="Go back"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              viewBox="0 0 16 16"
-              className="mr-1"
+    <div className="min-h-screen bg-[#050505] relative py-20 px-6">
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.05] pointer-events-none" />
+      
+      <div className="relative z-10 max-w-5xl mx-auto">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+          <div>
+            <NavigateButton
+              to="/admin/dashboard"
+              className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-4 group"
             >
-              <path
-                fillRule="evenodd"
-                d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"
-              />
-            </svg>
-            <span className="font-medium">Back</span>
-          </NavigateButton>
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-full flex justify-center pointer-events-none">
-            <Header />
+              <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
+              Back to Dashboard
+            </NavigateButton>
+            <h1 className="text-4xl font-outfit font-extrabold text-white">Edit Project</h1>
+            <p className="text-zinc-500 font-inter mt-1">Refine the details for <span className="text-emerald-400 font-semibold">{project?.name}</span></p>
           </div>
         </div>
-        <div className="bg-gray-800 p-8 rounded-2xl shadow-lg">
-          <FormRender project={project} navigate={navigate} />
-        </div>
+
+        {(isUpdating || isDeleting) && <LoadingScreen text="Processing changes..." />}
+        
+        <ProjectForm
+          project={project}
+          onSubmit={onUpdate}
+          isPending={isUpdating}
+          projectError={updateError}
+          hasDeleteButton={true}
+          onDelete={onDelete}
+        />
+
         {!project && !isLoading && !error && (
-          <p className="text-gray-400 mt-4">Project not found.</p>
+          <div className="text-center py-20 border border-dashed border-white/5 rounded-3xl mt-12 text-zinc-500 font-inter">
+            Project not found. It may have been deleted.
+          </div>
         )}
       </div>
     </div>

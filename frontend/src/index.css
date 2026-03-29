@@ -1,1 +1,62 @@
 @import "tailwindcss";
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply text-white;
+  }
+
+  .bg-grid-pattern {
+    background-size: 30px 30px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-position: top center;
+  }
+
+  /* Fancy glowing border wrapper for cards */
+  .glow-border {
+    position: relative;
+  }
+  .glow-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      90deg,
+      rgba(16, 185, 129, 0.1) 0%, /* Emerald */
+      rgba(139, 92, 246, 0.1) 50%, /* Violet */
+      rgba(14, 165, 233, 0.1) 100% /* Sky */
+    );
+    z-index: -1;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+  }
+  .glow-border:hover::before {
+    opacity: 1;
+    background: linear-gradient(
+      90deg,
+      rgba(16, 185, 129, 0.6) 0%,
+      rgba(139, 92, 246, 0.6) 50%,
+      rgba(14, 165, 233, 0.6) 100%
+    );
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  background-color: #050505; /* Deep Void Black */
+  color: #a1a1aa; /* Zinc 400 */
+  overflow-x: hidden;
+  max-width: 100%;
+}

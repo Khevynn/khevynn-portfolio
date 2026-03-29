@@ -1,76 +1,83 @@
 import { useProjects } from "../hooks/useProjects";
 import ProjectPreviewBox from "../components/layouts/Projects/ProjectPreviewBox";
+import ProjectModal from "../components/layouts/Projects/ProjectModal";
 import Loading from "../components/ui/Loading";
 import NavigateButton from "../components/ui/NavigateButton";
+import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 
 function ProjectsPreview() {
   const { data: projects, isLoading, error } = useProjects("");
+  const [selectedProject, setSelectedProject] = useState(null);
+
   function RenderProjects() {
-    // Show loading state
     if (isLoading) {
       return (
-        <div className="text-gray-400 text-sm font-thin h-64 text-center flex flex-col justify-center items-center">
+        <div className="w-full h-64 flex flex-col justify-center items-center gap-3">
           <Loading />
-          <p className="ml-2">Loading projects...</p>
-          <p className="text-gray-500">
-            If that's your first time, this may take a few seconds
-          </p>
+          <p className="text-sm font-inter text-slate-400">Loading projects...</p>
         </div>
       );
     }
 
-    // Show error state
     if (error) {
       return (
-        <div className="flex justify-center items-center h-64">
-          <p className="text-red-400">
-            Error loading projects: {error.message}
+        <div className="w-full flex justify-center items-center h-64 bg-slate-800 border border-slate-700 rounded-xl">
+          <p className="text-red-400 font-inter text-sm">
+            Could not load projects: {error.message}
           </p>
         </div>
       );
     }
 
-    // Ensure projects is an array before using .map()
     if (!Array.isArray(projects) || projects.length === 0) {
       return (
-        <div className="flex justify-center items-center h-64">
-          <p className="text-gray-400">No projects available.</p>
+        <div className="w-full flex justify-center items-center h-64 bg-slate-800 border border-slate-700 rounded-xl">
+          <p className="text-slate-400 font-inter text-sm">No projects available right now.</p>
         </div>
       );
     }
 
-    // Render projects
-    return projects
-      .slice(0, 3)
-      .map((project, index) => (
-        <ProjectPreviewBox
-          key={project.id || index}
-          project={project}
-          projectIndex={index}
-        />
-      ));
+    return projects.slice(0, 3).map((project, index) => (
+      <ProjectPreviewBox key={project.id || index} project={project} onClick={setSelectedProject} />
+    ));
   }
 
   return (
-    <div
+    <section
       id="projects-preview"
-      className="flex flex-col min-h-142 bg-gray-950 gap-5 max-md:pb-10 lg:px-10 xl:px-30 2xl:px-50"
+      className="relative flex flex-col py-24 w-full max-w-7xl mx-auto px-6 overflow-hidden border-t border-white/5"
     >
-      <h1 className="mt-10 text-center text-3xl text-gray-200 font-extrabold">
-        Projects
-      </h1>
-      <p className="text-center text-lg text-gray-200">
-        This section will showcase a preview of various projects.
-      </p>
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <div>
+          <h2 className="text-sm font-inter text-emerald-400 tracking-[0.2em] uppercase mb-3 font-semibold">
+            Portfolio
+          </h2>
+          <h1 className="text-4xl md:text-5xl font-extrabold font-outfit text-white">
+            Featured Projects
+          </h1>
+          <p className="text-base text-zinc-400 mt-4 max-w-xl font-inter leading-relaxed">
+            A selection of recent work spanning scalable backend systems, AI tools, and interactive game experiences.
+          </p>
+        </div>
+        <NavigateButton
+          to="/projects"
+          className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 bg-white/[0.02] text-zinc-300 font-inter font-medium text-sm hover:border-emerald-500/30 hover:bg-emerald-500/5 hover:text-emerald-400 transition-all"
+        >
+          View all projects
+          <ArrowRight size={16} />
+        </NavigateButton>
+      </div>
 
-      <div className="flex flex-col gap-5 mb-10 items-center justify-center lg:items-start lg:flex-row">
+      {/* Cards grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {RenderProjects()}
       </div>
 
-      <NavigateButton to="/projects" className="mx-auto mb-10">
-        See All Projects
-      </NavigateButton>
-    </div>
+      {/* Modal Overlay */}
+      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+    </section>
   );
 }
 

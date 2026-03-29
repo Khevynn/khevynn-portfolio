@@ -55,28 +55,18 @@ function ProjectForm({
 
   const handleImageChange = (e) => {
     const file = e?.target?.files?.[0];
-    console.log("Selected file:", file);
-
     if (!file) return;
 
-    // Clean up previous blob URL
     if (imageUrl && imageUrl.startsWith("blob:")) {
       URL.revokeObjectURL(imageUrl);
     }
 
-    // Check file size
-    if (file.size > 5 * 1024 * 1024) {
-      console.error("File too large");
-      return;
-    }
+    if (file.size > 5 * 1024 * 1024) return;
 
-    // Set new file and create blob URL for preview
     setValue("image", file);
     setValue("imageUrl", URL.createObjectURL(file));
-    console.log("Image set successfully");
   };
 
-  // Clean up blob URLs on unmount
   useEffect(() => {
     return () => {
       if (imageUrl && imageUrl.startsWith("blob:")) {
@@ -85,142 +75,105 @@ function ProjectForm({
     };
   }, [imageUrl]);
 
-  const handleFormSubmit = (data) => {
-    console.log("Form submitted with data:", data);
-    onSubmit(data);
-  };
-
   return (
     <form
-      className="flex flex-col gap-5 bg-gray-800 p-6 rounded-lg shadow-md"
-      onSubmit={handleSubmit(handleFormSubmit)}
+      className="flex flex-col gap-8 bg-white/[0.02] backdrop-blur-3xl p-8 lg:p-10 rounded-3xl border border-white/10 shadow-2xl"
+      onSubmit={handleSubmit(onSubmit)}
     >
-      <Input
-        label="Project Name"
-        placeholder="Enter project name"
-        error={errors.name?.message}
-        {...register("name", { required: "Project Name is required" })}
-      />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+        <Input
+          label="Project Name"
+          placeholder="e.g. Outlander"
+          error={errors.name?.message}
+          {...register("name", { required: "Project Name is required" })}
+        />
 
-      <TextArea
-        label="Description"
-        placeholder="Enter project description"
-        className="overflow-y-auto wrap-break min-h-30"
-        error={errors.description?.message}
-        {...register("description", {
-          required: "Description is required",
-          maxLength: {
-            value: 500,
-            message: "Description must be less than 500 characters",
-          },
-        })}
-      />
+        <Dropdown
+          label="Status"
+          options={[
+            { value: "Completed", label: "Completed" },
+            { value: "In Progress", label: "In Progress" },
+            { value: "Not Started", label: "Not Started" },
+          ]}
+          error={errors.status?.message}
+          {...register("status", { required: "Status is required" })}
+        />
 
-      <Dropdown
-        label="Status"
-        options={[
-          { value: "Completed", label: "Completed" },
-          { value: "In Progress", label: "In Progress" },
-          { value: "Not Started", label: "Not Started" },
-        ]}
-        error={errors.status?.message}
-        {...register("status", {
-          required: "Status is required",
-        })}
-      />
+        <div className="md:col-span-2">
+           <TextArea
+            label="Brief Description"
+            placeholder="Describe the main goal and features..."
+            error={errors.description?.message}
+            {...register("description", {
+              required: "Description is required",
+              maxLength: {
+                value: 500,
+                message: "Max 500 characters",
+              },
+            })}
+          />
+        </div>
 
-      <Input
-        label="Technologies Used"
-        placeholder="Enter technologies used"
-        error={errors.usedTechnologies?.message}
-        {...register("usedTechnologies", {
-          required: "Technologies are required",
-          maxLength: {
-            value: 200,
-            message: "Technologies must be less than 200 characters",
-          },
-        })}
-      />
+        <Input
+          label="Technologies"
+          placeholder="React, Node.js, etc."
+          error={errors.usedTechnologies?.message}
+          {...register("usedTechnologies", { required: "Technologies required" })}
+        />
 
-      <ImageInput
-        label="Image"
-        accept="image/*"
-        onChange={handleImageChange}
-        error={errors.image?.message}
-      />
+        <Input
+          label="GitHub Link"
+          placeholder="https://github.com/..."
+          error={errors.githubUrl?.message}
+          {...register("githubUrl", { required: "GitHub URL is required" })}
+        />
+
+         <Input
+          label="Live Demo Link"
+          placeholder="https://..."
+          error={errors.downloadUrl?.message}
+          {...register("downloadUrl")}
+        />
+
+        <ImageInput
+          label="Cover Image"
+          onChange={handleImageChange}
+          error={errors.image?.message}
+        />
+      </div>
 
       {imageUrl && (
-        <div className="mt-2">
-          <img
-            src={imageUrl}
-            alt="Project preview"
-            className="w-40 h-40 object-cover rounded border border-gray-700"
-          />
+        <div className="relative w-full aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden border border-white/10 bg-black/40">
+          <img src={imageUrl} alt="Preview" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          <span className="absolute bottom-4 left-4 text-xs font-inter font-bold text-white/50 uppercase tracking-widest">Preview Mode</span>
         </div>
       )}
 
-      <Input
-        label="GitHub URL"
-        placeholder="Enter GitHub repository URL"
-        error={errors.githubUrl?.message}
-        {...register("githubUrl", {
-          required: "GitHub URL is required",
-          pattern: {
-            value:
-              /^(https?:\/\/)?(www\.)?github\.com\/[a-zA-Z0-9_.-]+\/[a-zA-Z0-9_.-]+\/?$/,
-            message: "Invalid GitHub URL format",
-          },
-        })}
-      />
-
-      <Input
-        label="Download URL"
-        placeholder="Enter download URL"
-        type="url"
-        error={errors.downloadUrl?.message}
-        {...register("downloadUrl", {
-          required: "Download URL is required",
-          pattern: {
-            value: /^(https?:\/\/)?[^\s/$.?#].[^\s]*$/,
-            message: "Invalid URL format",
-          },
-        })}
-      />
-
-      <div className="flex justify-end w-full gap-4">
-        <Button
-          type="submit"
-          className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded transition-colors"
-          disabled={isPending}
-        >
-          {isPending ? "Submitting..." : "Submit"}
-        </Button>
-
-        {hasDeleteButton && (
-          <Button
-            className="px-4 py-2 bg-transparent border border-red-500 hover:bg-red-500 text-red-500 hover:text-white rounded transition-colors"
+      <div className="flex items-center justify-between pt-6 border-t border-white/5 mt-4">
+        {hasDeleteButton ? (
+          <button
             type="button"
             onClick={onDelete}
+            className="flex items-center gap-2 px-6 py-3 rounded-xl border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all font-inter font-semibold text-sm"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              className="bi bi-trash"
-              viewBox="0 0 16 16"
-            >
-              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
-              <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
-            </svg>
-          </Button>
-        )}
+            Delete Project
+          </button>
+        ) : <div />}
+
+        <Button
+          type="submit"
+          disabled={isPending}
+          className="min-w-[160px] shadow-[0_0_30px_rgba(16,185,129,0.2)]"
+        >
+          {isPending ? "Syncing..." : "Save Changes"}
+        </Button>
       </div>
 
       {projectError && (
-        <p className="text-red-500 mt-2">
-          Error during operation: {projectError.message}
-        </p>
+        <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-inter text-center mt-4">
+          Error: {projectError.message}
+        </div>
       )}
     </form>
   );
