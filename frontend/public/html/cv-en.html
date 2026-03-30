@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khevynn Sá - Software Engineer (Backend & Games) CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #3498db;
+      --text-main: #333333;
+      --text-muted: #666666;
+      --bg-color: #ffffff;
+      --border-color: #eaeaea;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f4f7f6;
+      color: var(--text-main);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .cv-container {
+      max-width: 850px;
+      margin: 40px auto;
+      background: var(--bg-color);
+      padding: 60px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+    }
+
+    header {
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 25px;
+      margin-bottom: 35px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .header-main h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+      letter-spacing: -0.5px;
+    }
+
+    .header-main h2 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--accent-color);
+    }
+
+    .contact-info {
+      text-align: right;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .contact-info a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent-color);
+    }
+
+    .contact-info p {
+      margin-bottom: 4px;
+    }
+
+    section {
+      margin-bottom: 35px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+      margin-left: 15px;
+    }
+
+    p.summary {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .experience-item,
+    .education-item {
+      margin-bottom: 25px;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .item-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .item-company {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--secondary-color);
+    }
+
+    .item-date,
+    .item-location {
+      font-size: 0.9rem;
+      color: var(--accent-color);
+      font-weight: 500;
+      background: #f0f8ff;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .item-subtitle {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .item-desc {
+      color: var(--text-muted);
+      padding-left: 15px;
+      border-left: 2px solid var(--border-color);
+    }
+
+    .item-desc ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .skill-category {
+      background: #fafafa;
+      padding: 15px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+
+    .skill-category h4 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .skill-list {
+      list-style-type: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .skill-list li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+    }
+
+    .skill-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    .strengths-list,
+    .languages-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .strengths-list li,
+    .languages-list li {
+      background: #f8f9fa;
+      border: 1px solid var(--border-color);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      color: var(--secondary-color);
+    }
+
+    .languages-list li strong {
+      color: var(--primary-color);
+    }
+
+    @media print {
+      body {
+        background-color: transparent;
+        font-size: 12px; /* Reduz o tamanho da fonte base no PDF */
+      }
+
+      .cv-container {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        max-width: 100%;
+      }
+
+      .skill-category,
+      .experience-item,
+      .education-item {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .section-title {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .cv-container {
+        padding: 30px 20px;
+        margin: 20px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-info {
+        text-align: left;
+        margin-top: 20px;
+      }
+
+      .item-header,
+      .item-subtitle {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .item-date,
+      .item-location {
+        margin-top: 5px;
+        padding: 2px 0;
+        background: transparent;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cv-container">
+    <header>
+      <div class="header-main">
+        <h1>Khevynn Sá</h1>
+        <h2>Software Engineer | Backend & Games</h2>
+      </div>
+      <div class="contact-info">
+        <p>Lisbon, Portugal | Remote & Hybrid</p>
+        <p><a href="mailto:tgwinter@proton.me">tgwinter@proton.me</a> | +351 935 784 446</p>
+        <p><a href="https://linkedin.com/in/khevynn-sá-8774162a1" target="_blank">LinkedIn</a> | <a
+            href="https://github.com/Khevynn" target="_blank">GitHub</a></p>
+        <p><a href="https://khevynn-sa-portfolio.vercel.app" target="_blank">khevynn-sa-portfolio.vercel.app</a></p>
+      </div>
+    </header>
+
+    <section>
+      <h3 class="section-title">Professional Summary</h3>
+      <p class="summary">
+        I am a Software Engineer specializing in Backend Architectures and Game Systems. With a degree in Games Development,
+        I bridge the gap between complex logic and seamless user experiences. My expertise lies in building robust data 
+        pipelines, orchestrating AI agents using Python & Google AI SDK, and designing efficient core systems in Java. 
+        I also have deep experience developing intelligent game mechanics using Unity (C#) and Unreal Engine (C++).
+        Whether writing highly concurrent backend services or optimizing memory allocations for a game engine, I prioritize
+        clean architectural patterns, maintainability, and absolute performance.
+      </p>
+    </section>
+
+    <section>
+      <h3 class="section-title">Work Experience</h3>
+
+      <div class="experience-item">
+        <div class="item-header">
+          <span class="item-title">Software Engineering Intern</span>
+          <span class="item-date">Oct 2025 – Jun 2026</span>
+        </div>
+        <div class="item-subtitle">
+          <span class="item-company">Reltio</span>
+          <span class="item-location">Lisbon, Portugal (Hybrid)</span>
+        </div>
+        <div class="item-desc">
+          <ul>
+            <li>Developed custom AI agents utilizing Google AI SDK and Python for analyzing, generating cost reports, and answering complex inquiries related to operational costs.</li>
+            <li>Built a Model Context Protocol (MCP) tool in Python to automate dashboard generation and streamline weekly cloud cost analysis.</li>
+            <li>Optimized the company's internal metrics collection systems and data pipelines using Java, improving performance and accuracy.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="item-header">
+          <span class="item-title">Software Development Intern</span>
+          <span class="item-date">Sep 2022 – Oct 2022</span>
+        </div>
+        <div class="item-subtitle">
+          <span class="item-company">Happy Code</span>
+          <span class="item-location">Cascais, Portugal (On-site)</span>
+        </div>
+        <div class="item-desc">
+          <ul>
+            <li>Guided students through fundamental programming concepts and game logic using customized educational platforms.</li>
+            <li>Collaborated with the internal team to maintain operational tools and developed robust backend functionalities that improved internal project workflows.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="section-title">Education</h3>
+
+      <div class="education-item">
+        <div class="item-header">
+          <span class="item-title">BSc Games Development</span>
+          <span class="item-date">Sep 2022 – Jul 2025</span>
+        </div>
+        <div class="item-subtitle">
+          <span class="item-company">IADE - European University</span>
+          <span class="item-location">Lisbon, Portugal</span>
+        </div>
+        <div class="item-desc">
+          <p>Focused intensely on game design, advanced Unity programming, Artificial Intelligence systems, and
+            collaborative agile teamwork projects. Designed and developed complex gameplay systems seamlessly integrated
+            with modern backend environments using RESTful APIs and real-time data flows.</p>
+        </div>
+      </div>
+
+      <div class="education-item">
+        <div class="item-header">
+          <span class="item-title">Professional Course in Software Development</span>
+          <span class="item-date">2019 – 2022</span>
+        </div>
+        <div class="item-subtitle">
+          <span class="item-company">Escola Secundária Matilde Rosa Araújo</span>
+          <span class="item-location">Cascais, Portugal</span>
+        </div>
+        <div class="item-desc">
+          <p>Acquired strong practical foundations in Java, Node.js, C#, MySQL, and backend security protocols.
+            Orchestrated a capstone final project involving a complete server system featuring secure authentication
+            loops and efficient API communication architectures. Final grade: 15/20.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="section-title">Technical Skills</h3>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4>Backend & Systems</h4>
+          <ul class="skill-list">
+            <li>Java & Python</li>
+            <li>Node.js / Express</li>
+            <li>SQL (MySQL) & Databases</li>
+            <li>Data Pipelines & Automation</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Game Engines & Core</h4>
+          <ul class="skill-list">
+            <li>Unity / C#</li>
+            <li>Unreal Engine / C++</li>
+            <li>Game Engine Architecture</li>
+            <li>Physics & Memory Optimization</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Web & Infrastructure</h4>
+          <ul class="skill-list">
+            <li>React & Tailwind CSS</li>
+            <li>Docker & Containerization</li>
+            <li>Git / GitHub / Version Control</li>
+            <li>Model Context Protocol (MCP)</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>AI & Methodologies</h4>
+          <ul class="skill-list">
+            <li>AI Agents / Google AI SDK</li>
+            <li>AI Tooling (Cursor, Claude, MCP)</li>
+            <li>System Design & Microservices</li>
+            <li>Concurrency & Optimization</li>
+            <li>Agile Methodology</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="section-title">Languages</h3>
+      <ul class="languages-list">
+        <li><strong>Portuguese:</strong> Native</li>
+        <li><strong>English:</strong> Professional (C1 Listening &middot; B2 Speaking, Reading, Writing)</li>
+      </ul>
+    </section>
+  </div>
+
+</body>
+
+</html>

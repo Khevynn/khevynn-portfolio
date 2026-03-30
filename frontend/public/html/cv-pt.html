@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khevynn Sá - Engenheiro de Software (Backend & Jogos) CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #34495e;
+      --accent-color: #3498db;
+      --text-main: #333333;
+      --text-muted: #666666;
+      --bg-color: #ffffff;
+      --border-color: #eaeaea;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f4f7f6;
+      color: var(--text-main);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .cv-container {
+      max-width: 850px;
+      margin: 40px auto;
+      background: var(--bg-color);
+      padding: 60px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+    }
+
+    header {
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .header-main h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+      letter-spacing: -0.5px;
+    }
+
+    .header-main h2 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--accent-color);
+    }
+
+    .contact-info {
+      text-align: right;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .contact-info a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent-color);
+    }
+
+    .contact-info p {
+      margin-bottom: 4px;
+    }
+
+    section {
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+      margin-left: 15px;
+    }
+
+    p.summary {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .experience-item,
+    .education-item {
+      margin-bottom: 20px;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    .item-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .item-company {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--secondary-color);
+    }
+
+    .item-date,
+    .item-location {
+      font-size: 0.9rem;
+      color: var(--accent-color);
+      font-weight: 500;
+      background: #f0f8ff;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .item-subtitle {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .item-desc {
+      color: var(--text-muted);
+      padding-left: 15px;
+      border-left: 2px solid var(--border-color);
+    }
+
+    .item-desc ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .skill-category {
+      background: #fafafa;
+      padding: 15px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+
+    .skill-category h4 {
+      font-size: 1rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .skill-list {
+      list-style-type: none;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .skill-list li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+    }
+
+    .skill-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    .strengths-list,
+    .languages-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .strengths-list li,
+    .languages-list li {
+      background: #f8f9fa;
+      border: 1px solid var(--border-color);
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      color: var(--secondary-color);
+    }
+
+    .languages-list li strong {
+      color: var(--primary-color);
+    }
+
+    @media print {
+      body {
+        background-color: transparent;
+        font-size: 12px; /* Reduz o tamanho da fonte base no PDF */
+      }
+
+      .cv-container {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        max-width: 100%;
+      }
+
+      .skill-category,
+      .experience-item,
+      .education-item {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+
+      .section-title {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .cv-container {
+        padding: 30px 20px;
+        margin: 20px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-info {
+        text-align: left;
+        margin-top: 20px;
+      }
+
+      .item-header,
+      .item-subtitle {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .item-date,
+      .item-location {
+        margin-top: 5px;
+        padding: 2px 0;
+        background: transparent;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cv-container">
+    <header>
+      <div class="header-main">
+        <h1>Khevynn Sá</h1>
+        <h2>Engenheiro de Software | Backend & Jogos</h2>
+      </div>
+      <div class="contact-info">
+        <p>Lisboa, Portugal | Remoto & Híbrido</p>
+        <p><a href="mailto:tgwinter@proton.me">tgwinter@proton.me</a> | +351 935 784 446</p>
+        <p><a href="https://linkedin.com/in/khevynn-sá-8774162a1" target="_blank">LinkedIn</a> | <a
+            href="https://github.com/Khevynn" target="_blank">GitHub</a></p>
+        <p><a href="https://khevynn-sa-portfolio.vercel.app" target="_blank">khevynn-sa-portfolio.vercel.app</a></p>
+      </div>
+    </header>
+
+    <section>
+      <h3 class="section-title">Resumo Profissional</h3>
+      <p class="summary">
+        Sou Engenheiro de Software com foco em Arquitetura de Backend e Sistemas para Jogos. Licenciado em Desenvolvimento de Jogos, atuo na interseção entre a lógica de negócio e a criação de experiências de utilizador fluidas e imersivas. A minha especialidade inclui a construção de pipelines de dados robustos, orquestração de Agentes IA (com Python e Google AI SDK), e o desenho de sistemas estruturais de alta performance em Java. Possuo também ampla experiência no desenvolvimento de mecânicas avançadas para videojogos utilizando o Unity (C#) e o Unreal Engine (C++). Quer esteja a desenvolver serviços *backend* vocacionados a suportar alta concorrência ou a otimizar a alocação de memória num motor de jogo, foco-me em padrões de arquitetura sustentável (*clean architecture*), código de fácil manutenção e máxima performance.
+      </p>
+    </section>
+
+    <section>
+      <h3 class="section-title">Experiência Profissional</h3>
+
+      <div class="experience-item">
+        <div class="item-header">
+          <span class="item-title">Estagiário de Engenharia de Software</span>
+          <span class="item-date">Out 2025 – Jun 2026</span>
+        </div>
+        <div class="item-subtitle">
+          <span class="item-company">Reltio</span>
+          <span class="item-location">Lisboa, Portugal (Híbrido)</span>
+        </div>
+        <div class="item-desc">
+          <ul>
+            <li>Desenvolvimento de agentes de Inteligência Artificial personalizados (Google AI SDK e Python) desenhados para analisar dados, gerar relatórios técnicos e esclarecer questões complexas sobre custos operacionais.</li>
+            <li>Criação de uma ferramenta MCP (Model Context Protocol) em Python para automatizar ativamente a geração de <i>dashboards</i> e otimizar as reuniões semanais de análise de custos <i>Cloud</i>.</li>
+            <li>Otimização estrutural dos sistemas internos de recolha de métricas e dos pipelines de dados da infraestrutura utilizando Java, reduzindo o tempo de processamento e assegurando uma maior precisão analítica.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="item-header">
+          <span class="item-title">Estagiário de Desenvolvimento de Software</span>
+          <span class="item-date">Set 2022 – Out 2022</span>
+        </div>
+        <div class="item-subtitle">
+          <span class="item-company">Happy Code</span>
+          <span class="item-location">Cascais, Portugal (Presencial)</span>
+        </div>
+        <div class="item-desc">
+          <ul>
+            <li>Orientação estruturada de alunos em conceitos nucleares de programação e lógica de videojogos através de plataformas corporativas da empresa.</li>
+            <li>Colaboração ativa com a equipa no desenvolvimento e manutenção de ferramentas operativas, assegurando implementações de <i>backend</i> eficazes que otimizaram fortemente o fluxo de trabalho dos projetos em curso.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="section-title">Formação Académica</h3>
+
+      <div class="education-item">
+        <div class="item-header">
+          <span class="item-title">Licenciatura em Desenvolvimento de Jogos</span>
+          <span class="item-date">Set 2022 – Jul 2025</span>
+        </div>
+        <div class="item-subtitle">
+          <span class="item-company">IADE - Universidade Europeia</span>
+          <span class="item-location">Lisboa, Portugal</span>
+        </div>
+        <div class="item-desc">
+          <p>Profunda orientação em <i>Game Design</i>, programação avançada em Unity, design de Inteligência Artificial e projetos colaborativos ancorados em metodologias Ágeis (*Scrum*). Desenhei e implementei múltiplos sistemas de <i>gameplay</i> inter-conetados a arquiteturas <i>backend</i> modernas recorrendo a APIs RESTful e websockets.</p>
+        </div>
+      </div>
+
+      <div class="education-item">
+        <div class="item-header">
+          <span class="item-title">Curso Profissional de Desenvolvimento de Software</span>
+          <span class="item-date">2019 – 2022</span>
+        </div>
+        <div class="item-subtitle">
+          <span class="item-company">Escola Secundária Matilde Rosa Araújo</span>
+          <span class="item-location">Cascais, Portugal</span>
+        </div>
+        <div class="item-desc">
+          <p>Aquisição de fortes estacas teóricas e práticas em Java, Node.js, C#, MySQL e segurança web. O meu projeto final de curso consistiu na estruturação modular de um servidor comunicativo capaz de cruzar dados e aplicar <i>loops</i> rigorosos de autenticação baseada em APIs. Nota Final: 15 Valores.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="section-title">Competências Técnicas</h3>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h4>Backend & Sistemas</h4>
+          <ul class="skill-list">
+            <li>Java & Python</li>
+            <li>Node.js / Express</li>
+            <li>SQL (MySQL) & Bases de Dados</li>
+            <li>Pipelines de Dados e Automação</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Motores de Jogo</h4>
+          <ul class="skill-list">
+            <li>Unity / C#</li>
+            <li>Unreal Engine / C++</li>
+            <li>Arquiteturas Core em Jogos</li>
+            <li>Física e Otimização de Memória</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Web & Infraestrutura</h4>
+          <ul class="skill-list">
+            <li>React & Tailwind CSS</li>
+            <li>Docker & Containers</li>
+            <li>Git / GitHub / Controlo de Versões</li>
+            <li>Model Context Protocol (MCP)</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>IA & Metodologias</h4>
+          <ul class="skill-list">
+            <li>Agentes IA / Google AI SDK</li>
+            <li>Ferramentas IA (Cursor, Claude, MCP)</li>
+            <li>Design de Sistemas & Microsserviços</li>
+            <li>Concorrência & Baixo a Nível</li>
+            <li>Metodologia Ágil</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="section-title">Idiomas</h3>
+      <ul class="languages-list">
+        <li><strong>Português:</strong> Nativo</li>
+        <li><strong>Inglês:</strong> Profissional (Nível C1 Compreensão Auditiva &middot; B2 Falado, Leitura, Escrita)</li>
+      </ul>
+    </section>
+  </div>
+
+</body>
+
+</html>
