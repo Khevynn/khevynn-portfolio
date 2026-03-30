@@ -27,7 +27,7 @@ function Contact() {
           Let's Build Something <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-sky-400">Great</span>
         </h1>
         <p className="text-sm sm:text-base lg:text-lg text-zinc-400 mt-4 max-w-xl font-inter leading-relaxed">
-          I am actively looking for new opportunities as a Backend or Game Developer in remote or hybrid environments. My inbox is always open.
+          I am actively looking for new opportunities as a <strong className="text-zinc-200">Software Engineer | Backend & Game Systems</strong> in remote or hybrid environments. My inbox is always open.
         </p>
       </div>
 
