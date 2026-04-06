@@ -8,9 +8,9 @@ function Experience() {
       period: "Oct 2025 – Jun 2026",
       location: "Lisbon, Portugal (Hybrid)",
       achievements: [
-        "Developed custom AI agents utilizing Google AI SDK and Python for analyzing, generating cost reports, and answering complex inquiries related to operational costs.",
-        "Built a Model Context Protocol (MCP) tool in Python to automate dashboard generation and streamline weekly cloud cost analysis.",
-        "Optimized the company's internal metrics collection systems and data pipelines using Java, improving performance and accuracy.",
+        <><strong className="text-zinc-200 tracking-wide">AI Systems & Analytics:</strong> Engineered intelligent agents (Python, Google AI SDK) to autonomously navigate data environments and generate complex cloud cost reports.</>,
+        <><strong className="text-zinc-200 tracking-wide">MCP Tooling & Automation:</strong> Built a proprietary Model Context Protocol (MCP) tool to actively automate dashboard generation, streamlining operations and internal tool workflows.</>,
+        <><strong className="text-zinc-200 tracking-wide">Pipeline Optimization:</strong> Refactored core infrastructure data pipelines in Java, heavily reducing processing latency and ensuring high-performance data tracking.</>,
       ],
       tech: ["Java", "Python", "Google AI SDK", "MCP Architecture"],
     },
@@ -20,8 +20,8 @@ function Experience() {
       period: "Sep 2022 – Oct 2022",
       location: "Cascais, Portugal (On-site)",
       achievements: [
-        "Mentored students on core programming and video game logic concepts using the company's corporate platforms.",
-        "Collaborated actively with the team on developing and maintaining operational tools, securing effective backend implementations that strongly optimized ongoing project workflows.",
+        <><strong className="text-zinc-200 tracking-wide">Game Logic Instruction:</strong> Guided students through core programming paradigms, algorithms, and applied video game logic via customized game education platforms.</>,
+        <><strong className="text-zinc-200 tracking-wide">Backend Tooling:</strong> Partnered with the development team to maintain and author internal operating tools, delivering robust backend capabilities that optimized studio-like project workflows.</>,
       ],
       tech: ["Backend Development", "Game Logic", "Mentoring"],
     },

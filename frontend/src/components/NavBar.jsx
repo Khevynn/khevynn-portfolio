@@ -196,7 +196,7 @@ function NavBar() {
 
           <div className="mt-8 flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/5 border border-emerald-500/20">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Available for Remote & Hybrid work</span>
+            <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Open to Opportunities</span>
           </div>
         </div>
       </div>

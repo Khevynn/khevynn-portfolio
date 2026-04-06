@@ -26,16 +26,6 @@ function Skills() {
 
   const categories = [
     {
-      title: "Backend & Systems",
-      icon: <Database className="text-emerald-500" size={20} />,
-      skills: [
-        { name: "Java", icon: <JavaOriginal size="3em" /> },
-        { name: "Python", icon: <PythonOriginal size="3em" /> },
-        { name: "Node.js", icon: <NodejsOriginal size="3em" /> },
-        { name: "SQL", icon: <MysqlOriginalWordmark size="3em" /> },
-      ],
-    },
-    {
       title: "Game Engines & Core",
       icon: <Gamepad2 className="text-violet-500" size={20} />,
       skills: [
@@ -43,6 +33,16 @@ function Skills() {
         { name: "Unreal Engine", icon: <UnrealengineOriginal color="#FFFFFF" size="3em" /> },
         { name: "C#", icon: <CsharpOriginal size="3em" /> },
         { name: "C++", icon: <CplusplusOriginal size="3em" /> },
+      ],
+    },
+    {
+      title: "Backend & Systems",
+      icon: <Database className="text-emerald-500" size={20} />,
+      skills: [
+        { name: "Java", icon: <JavaOriginal size="3em" /> },
+        { name: "Python", icon: <PythonOriginal size="3em" /> },
+        { name: "Node.js", icon: <NodejsOriginal size="3em" /> },
+        { name: "SQL", icon: <MysqlOriginalWordmark size="3em" /> },
       ],
     },
     {

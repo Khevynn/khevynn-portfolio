@@ -61,13 +61,13 @@ function MainPanel() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
           </span>
-          <span className="truncate">Available for Remote &amp; Hybrid</span>
+          <span className="truncate">Open to Opportunities</span>
         </div>
 
         {/* Headline */}
         <div className="flex flex-col gap-2 w-full">
           <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-[5rem] font-extrabold font-outfit text-white leading-[1.1] tracking-tight">
-            Software <span className="text-zinc-600 font-light">&</span><br />
+            Game <span className="text-zinc-600 font-light">&</span><br />
             Systems <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-sky-400">Engineer.</span>
           </h1>
         </div>
@@ -86,7 +86,7 @@ function MainPanel() {
 
         {/* Description */}
         <p className="text-sm sm:text-base lg:text-lg text-zinc-400 font-inter max-w-xl leading-relaxed">
-          Software Engineer based in Lisbon. Specialized in <strong className="text-zinc-200 font-semibold">Backend Architectures</strong> and <strong className="text-zinc-200 font-semibold">Game Systems</strong>.
+          Game Programmer based in Lisbon. Specialized in <strong className="text-zinc-200 font-semibold">Core Systems</strong> and <strong className="text-zinc-200 font-semibold">Backend Architectures</strong>.
         </p>
 
         {/* CTA Buttons */}

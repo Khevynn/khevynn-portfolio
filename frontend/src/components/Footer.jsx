@@ -15,13 +15,6 @@ function Footer({ className }) {
           <p className="text-zinc-500">
             Powered by React
           </p>
-          <div className="h-4 w-px bg-white/10" />
-          <a 
-            href="/admin/dashboard" 
-            className="text-zinc-400 hover:text-emerald-400 transition-colors uppercase tracking-wider text-xs font-semibold"
-          >
-            Admin Panel
-          </a>
         </div>
       </div>
     </footer>

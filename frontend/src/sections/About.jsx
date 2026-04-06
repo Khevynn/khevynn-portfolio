@@ -17,8 +17,8 @@ function About() {
     {
       Icon: Server,
       label: "Primary Focus",
-      value: "Backend & Game Systems",
-      sub: "Java, Python, MCP, Unity, Unreal",
+      value: "Game & Backend Systems",
+      sub: "Unity, Unreal, Java, MCP, Python",
     },
     {
       Icon: Languages,
@@ -49,13 +49,13 @@ function About() {
         <div className="flex flex-col gap-6">
           <div className="space-y-6 text-base lg:text-lg text-zinc-400 font-inter leading-relaxed">
             <p>
-              I am a <strong className="text-zinc-200">Software Engineer</strong> specializing in Backend Architectures and Game Systems. With a degree in <strong className="text-emerald-400">Games Development</strong> from IADE, I bridge the gap between complex logic and seamless user experiences.
+              I am a <strong className="text-zinc-200">Game Programmer</strong> specializing in Core Systems and Backend Architecture. With a degree in <strong className="text-emerald-400">Games Development</strong> from IADE, I bridge the gap between complex engine logic and seamless game experiences.
             </p>
             <p>
-              My expertise lies in building robust data pipelines, orchestrating AI agents (using <strong className="text-zinc-200">Python & Google AI SDK</strong>), and designing efficient core systems in <strong className="text-zinc-200">Java</strong>. I also have deep experience developing intelligent game mechanics and physics using <strong className="text-zinc-200">Unity (C#)</strong> and <strong className="text-zinc-200">Unreal Engine (C++)</strong>.
+              My expertise lies in developing performant game mechanics, physics, and scalable core systems using <strong className="text-zinc-200">Unity (C#)</strong> and <strong className="text-zinc-200">Unreal Engine (C++)</strong>. Leveraging my strong software engineering foundation, I also design efficient scalable backend services in <strong className="text-zinc-200">Java</strong>, orchestrate AI agents (using <strong className="text-zinc-200">Python & Google AI SDK</strong>), and build robust data pipelines.
             </p>
             <p>
-              Whether I'm writing highly concurrent backend services or optimizing memory allocations for a game engine, I prioritize clean architectural patterns, maintainability, and absolute performance.
+              Whether I'm optimizing memory allocations for a game engine or writing highly concurrent backend services, I prioritize clean architectural patterns, maintainability, and absolute performance.
             </p>
           </div>
 
