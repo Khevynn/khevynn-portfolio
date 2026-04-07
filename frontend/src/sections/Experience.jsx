@@ -11,8 +11,9 @@ function Experience() {
         <><strong className="text-zinc-200 tracking-wide">AI Systems & Analytics:</strong> Engineered intelligent agents (Python, Google AI SDK) to autonomously navigate data environments and generate complex cloud cost reports.</>,
         <><strong className="text-zinc-200 tracking-wide">MCP Tooling & Automation:</strong> Built a proprietary Model Context Protocol (MCP) tool to actively automate dashboard generation, streamlining operations and internal tool workflows.</>,
         <><strong className="text-zinc-200 tracking-wide">Pipeline Optimization:</strong> Refactored core infrastructure data pipelines in Java, heavily reducing processing latency and ensuring high-performance data tracking.</>,
+        <><strong className="text-zinc-200 tracking-wide">Team Collaboration & PM:</strong> Coordinated with internal engineering teams using Jira, Google Meet, and Slack to manage agile workflows and communicate effectively.</>,
       ],
-      tech: ["Java", "Python", "Google AI SDK", "MCP Architecture"],
+      tech: ["Java", "Python", "Google AI SDK", "MCP Architecture", "Jira & Slack"],
     },
     {
       role: "Software Development Intern",
@@ -20,8 +21,8 @@ function Experience() {
       period: "Sep 2022 – Oct 2022",
       location: "Cascais, Portugal (On-site)",
       achievements: [
-        <><strong className="text-zinc-200 tracking-wide">Game Logic Instruction:</strong> Guided students through core programming paradigms, algorithms, and applied video game logic via customized game education platforms.</>,
-        <><strong className="text-zinc-200 tracking-wide">Backend Tooling:</strong> Partnered with the development team to maintain and author internal operating tools, delivering robust backend capabilities that optimized studio-like project workflows.</>,
+        <><strong className="text-zinc-200 tracking-wide">Game Logic Instruction:</strong> Fostered critical thinking in programming by guiding students through core algorithms and simple game mechanics (e.g., jumping, breaking blocks) within Minecraft Education.</>,
+        <><strong className="text-zinc-200 tracking-wide">Backend Tooling:</strong> Developed a Python-driven content management library to centralize courses, client data, and faculty directories. This system optimized internal back-office operations, significantly improving data accessibility for administrators and allowing students to seamlessly retrieve specific class materials.</>,
       ],
       tech: ["Backend Development", "Game Logic", "Mentoring"],
     },

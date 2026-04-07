@@ -8,11 +8,11 @@ function Education() {
       period: "2022 – 2025",
       location: "Lisbon, Portugal",
       achievements: [
-        <><strong className="text-zinc-200 tracking-wide">Gameplay & Mechanics:</strong> Programmed complex player systems, custom combat mechanics, and AI behavioral state machines using Unity (C#) and Unreal Engine (C++).</>,
-        <><strong className="text-zinc-200 tracking-wide">System Architecture:</strong> Integrated engine gameplay loops with modern backend architectures, applying RESTful APIs and real-time networking flows.</>,
-        <><strong className="text-zinc-200 tracking-wide">Optimization & Engine Core:</strong> Studied Applied Mathematics, Data Structures, and Engine Development, explicitly prioritizing memory optimization and scalable code.</>,
+        <><strong className="text-zinc-200 tracking-wide">Gameplay & Collaboration:</strong> Developed 2D and 3D games, collaborating with UI and design teams to program player systems, combat mechanics, and AI using Unity (C#) and Unreal Engine (C++).</>,
+        <><strong className="text-zinc-200 tracking-wide">Backend & Networking:</strong> Architected Matchmaking (MM) systems and real-time networking flows, integrating game clients with Node.js backends via Webhooks and RESTful APIs.</>,
+        <><strong className="text-zinc-200 tracking-wide">Optimization & Engine Core:</strong> Applied Data Structures and Mathematics to optimize engine performance, ensuring networking logic and gameplay systems maintained strict memory efficiency.</>,
       ],
-      tech: ["Game Design", "Unity", "AI", "C#"],
+      tech: ["Game Design", "Unity", "Unreal Engine", "Node.js", "C#"],
     },
     {
       degree: "Professional Course – Computer Programmer",
@@ -20,10 +20,11 @@ function Education() {
       period: "2019 – 2022",
       location: "Cascais, Portugal",
       achievements: [
-        "Acquired practical foundations in Java, Node.js, C#, MySQL, and backend security.",
-        "Built a full-stack capstone project featuring a complete server system with secure authentication and efficient API communication.",
+        <><strong className="text-zinc-200 tracking-wide">Core Fundamentals:</strong> Acquired practical foundations in Object-Oriented logical design, problem solving, and backend architecture.</>,
+        <><strong className="text-zinc-200 tracking-wide">Capstone Project (PAP):</strong> Developed a fully playable 3D RPG video game using Unity (C#), achieving a near-perfect final project grade of 19/20.</>,
+        <><strong className="text-zinc-200 tracking-wide">Final Results:</strong> Graduated with a high overall course average of 17/20.</>,
       ],
-      tech: ["Java", "C#", "MySQL", "Node.js"],
+      tech: ["Unity", "C#", "Java", "Node.js"],
     },
   ];
 
