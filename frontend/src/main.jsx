@@ -7,6 +7,7 @@ import "./index.css";
 
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectListPage";
+import ProjectDetailPage from "./pages/ProjectDetailPage";
 import LoginPage from "./pages/Admin/LoginPage";
 import RegisterPage from "./pages/Admin/RegisterPage";
 import AdminPage from "./pages/Admin/AdminPage";
@@ -31,6 +32,10 @@ const Router = createBrowserRouter([
   {
     path: "/projects",
     element: <ProjectsPage />,
+  },
+  {
+    path: "/projects/:slug",
+    element: <ProjectDetailPage />,
   },
   {
     path: "/admin/dashboard",

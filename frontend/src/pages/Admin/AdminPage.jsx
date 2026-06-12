@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useProjects } from "../../hooks/useProjects";
+import { useProjectsAdmin } from "../../hooks/useProjects";
 import axios from "axios";
 import { Plus, LayoutGrid, LogOut, ArrowLeft } from "lucide-react";
 
@@ -9,7 +9,7 @@ import Button from "../../components/ui/Button";
 import NavigateButton from "../../components/ui/NavigateButton";
 
 function EditProjectList() {
-  const { data: projects, isLoading, error } = useProjects("");
+  const { data: projects, isLoading, error } = useProjectsAdmin();
 
   if (isLoading) {
     return (

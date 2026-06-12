@@ -48,7 +48,7 @@ function MainPanel() {
       id="mainPanel"
       className="relative flex flex-col min-h-svh justify-center pt-28 pb-12 md:flex-row md:items-center md:gap-8 lg:gap-12 overflow-hidden"
     >
-      {/* Background ambient glow — contained with overflow-hidden on section */}
+      {/* Background ambient glow - contained with overflow-hidden on section */}
       <div className="absolute top-1/3 left-0 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute top-1/3 right-0 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 bg-violet-500/10 blur-[100px] rounded-full pointer-events-none" />
 
@@ -127,7 +127,7 @@ function MainPanel() {
         </div>
       </div>
 
-      {/* Right Column: Photo — full-width below on mobile, side-by-side on md+ */}
+      {/* Right Column: Photo - full-width below on mobile, side-by-side on md+ */}
       <div className="flex md:flex-1 w-full justify-center md:justify-end z-10 min-w-0 md:mt-0 mt-8">
         <div className="relative w-3/4 max-w-xs sm:max-w-sm md:w-full md:max-w-[280px] lg:max-w-[340px] xl:max-w-[380px] glow-border p-[1px] rounded-3xl">
           <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden bg-[#0a0a0a] shadow-2xl z-10">

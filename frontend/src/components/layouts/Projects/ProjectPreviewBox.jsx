@@ -1,9 +1,43 @@
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import FeaturedBadge from "../../ui/FeaturedBadge";
 
-function ProjectPreviewBox({ project, onClick }) {
+function StatusBadge({ status }) {
+  const map = {
+    Completed: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+    "In Progress": "bg-amber-500/20 text-amber-300 border-amber-500/30",
+  };
+  const cls = map[status] || "bg-white/10 text-zinc-300 border-white/20";
+  return (
+    <span className={`text-[10px] uppercase font-inter font-bold tracking-widest px-3 py-1.5 rounded-full border backdrop-blur-md shadow-lg ${cls}`}>
+      {status}
+    </span>
+  );
+}
+
+function ProjectPreviewBox({ project }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (project.slug) {
+      navigate(`/projects/${project.slug}`);
+    }
+  };
+
+  const previewText = project.shortDescription || project.description || "";
+
+  const techList =
+    Array.isArray(project.techTags) && project.techTags.length > 0
+      ? project.techTags.slice(0, 4)
+      : (project.usedTechnologies || "")
+          .split(",")
+          .map((t) => t.trim())
+          .filter(Boolean)
+          .slice(0, 4);
+
   return (
     <button
-      onClick={() => onClick(project)}
+      onClick={handleClick}
       id={`project-${project.id}`}
       className="text-left group flex flex-col bg-[#0a0a0a] border border-white/5 rounded-3xl overflow-hidden hover:-translate-y-1 hover:border-emerald-500/30 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all duration-300 w-full relative h-full"
     >
@@ -17,7 +51,13 @@ function ProjectPreviewBox({ project, onClick }) {
           alt={project.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 opacity-70 group-hover:opacity-100"
         />
-        {/* Status badge over image */}
+        {/* Featured badge top-left */}
+        {(project.isFeatured === 1 || project.isFeatured === true) && (
+          <div className="absolute top-3 left-3 z-10">
+            <FeaturedBadge />
+          </div>
+        )}
+        {/* Status badge top-right */}
         {project.status && (
           <div className="absolute top-3 right-3 z-10">
             <StatusBadge status={project.status} />
@@ -27,14 +67,19 @@ function ProjectPreviewBox({ project, onClick }) {
 
       {/* Content */}
       <div className="flex flex-col p-6 lg:p-7 flex-1 relative z-10">
-        {/* Tech tags */}
+        {/* Category + tech tags */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {project.usedTechnologies?.split(",").slice(0, 4).map((tech, idx) => (
+          {project.category && project.category !== "Other" && (
+            <span className="text-[0.65rem] font-inter font-bold uppercase tracking-wider text-violet-400 bg-violet-500/10 border border-violet-500/20 px-2 py-0.5 rounded">
+              {project.category}
+            </span>
+          )}
+          {techList.map((tech, idx) => (
             <span
-              key={tech.trim() + idx}
+              key={tech + idx}
               className="text-[0.7rem] font-inter font-semibold tracking-wider uppercase text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded backdrop-blur-sm"
             >
-              {tech.trim()}
+              {tech}
             </span>
           ))}
         </div>
@@ -44,31 +89,18 @@ function ProjectPreviewBox({ project, onClick }) {
         </h2>
 
         <p className="font-inter text-zinc-400 text-sm leading-relaxed line-clamp-2 flex-1">
-          {project.description}
+          {previewText}
         </p>
       </div>
 
       {/* Footer */}
       <div className="w-full px-6 py-5 border-t border-white/5 flex items-center justify-between group-hover:bg-white/[0.02] transition-colors mt-auto shrink-0">
         <span className="text-xs font-inter font-medium text-zinc-500 group-hover:text-emerald-400 transition-colors uppercase tracking-widest">
-          View Details
+          View Case Study
         </span>
         <ArrowRight size={16} className="text-zinc-600 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
       </div>
     </button>
-  );
-}
-
-function StatusBadge({ status }) {
-  const map = {
-    Completed: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-    "In Progress": "bg-amber-500/20 text-amber-300 border-amber-500/30",
-  };
-  const cls = map[status] || "bg-white/10 text-zinc-300 border-white/20";
-  return (
-    <span className={`text-[10px] uppercase font-inter font-bold tracking-widest px-3 py-1.5 rounded-full border backdrop-blur-md shadow-lg ${cls}`}>
-      {status}
-    </span>
   );
 }
 

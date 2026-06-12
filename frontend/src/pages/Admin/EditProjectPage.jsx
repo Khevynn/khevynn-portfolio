@@ -19,14 +19,10 @@ function EditProjectPage() {
   const { mutate: updateProject, isPending: isUpdating, error: updateError } = useUpdateProject();
   const { mutate: deleteProject, isPending: isDeleting } = useDeleteProject();
 
-  const onUpdate = (data) => {
-    const projectData = {
-      ...data,
-      image: data.image ? data.image : null,
-    };
-
+  const onUpdate = (formData) => {
+    // formData is already a FormData instance built by ProjectForm
     updateProject(
-      { id: project.id, projectData },
+      { id: project.id, projectData: formData },
       { onSuccess: () => navigate(`/admin/dashboard`) }
     );
   };

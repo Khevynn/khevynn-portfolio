@@ -21,8 +21,10 @@
     "react-devicons": "^2.16.2",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.61.1",
+    "react-markdown": "^10.1.0",
     "react-router-dom": "^7.6.3",
-    "react-router-hash-link": "^2.4.3"
+    "react-router-hash-link": "^2.4.3",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",

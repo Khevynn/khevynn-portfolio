@@ -10,17 +10,11 @@ function CreateProjectPage() {
   const navigate = useNavigate();
   const { mutate, isPending, error: createError } = useCreateProject();
 
-  const onSubmit = (data) => {
-    const projectData = {
-      ...data,
-      image: data.image ? data.image : null,
-    };
-
+  const onSubmit = (formData) => {
+    // formData is already a FormData instance built by ProjectForm
     mutate(
-      { projectData },
-      {
-        onSuccess: () => navigate(`/admin/dashboard`),
-      }
+      { projectData: formData },
+      { onSuccess: () => navigate(`/admin/dashboard`) }
     );
   };
 
