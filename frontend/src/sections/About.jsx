@@ -17,8 +17,8 @@ function About() {
     {
       Icon: Server,
       label: "Primary Focus",
-      value: "Game & Backend Systems",
-      sub: "Unity, Unreal, Java, MCP, Python",
+      value: "Backend Engineering",
+      sub: "Java, Spring Boot, REST APIs",
     },
     {
       Icon: Languages,
@@ -39,8 +39,8 @@ function About() {
           About Me
         </h2>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-outfit text-white leading-tight">
-          Architecting Systems,<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-sky-400">Powering Experiences.</span>
+          Building Backends,<br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-sky-400">Powering Systems.</span>
         </h1>
       </div>
 
@@ -49,19 +49,19 @@ function About() {
         <div className="flex flex-col gap-6">
           <div className="space-y-6 text-base lg:text-lg text-zinc-400 font-inter leading-relaxed">
             <p>
-              I am a <strong className="text-zinc-200">Game Programmer</strong> specializing in Core Systems and Backend Architecture. With a degree in <strong className="text-emerald-400">Games Development</strong> from IADE, I bridge the gap between complex engine logic and seamless game experiences.
+              I am a <strong className="text-zinc-200">Backend Software Engineer</strong> with a strong foundation in Object-Oriented Programming and scalable systems design. With a degree in <strong className="text-emerald-400">Software & Games Development</strong> from IADE, I bridge complex engineering challenges with clean, efficient solutions.
             </p>
             <p>
-              My expertise lies in developing performant game mechanics, physics, and scalable core systems using <strong className="text-zinc-200">Unity (C#)</strong> and <strong className="text-zinc-200">Unreal Engine (C++)</strong>. Leveraging my strong software engineering foundation, I also design efficient scalable backend services in <strong className="text-zinc-200">Java</strong>, orchestrate AI agents (using <strong className="text-zinc-200">Python & Google AI SDK</strong>), and build robust data pipelines.
+              My core expertise is in <strong className="text-zinc-200">Java, Spring Boot, and RESTful API design</strong>. During my internship at Reltio, I architected data pipelines in Java, built AI-driven automation agents in Python, and delivered an MCP-based internal tooling system used by engineering teams daily.
             </p>
             <p>
-              Whether I'm optimizing memory allocations for a game engine or writing highly concurrent backend services, I prioritize clean architectural patterns, maintainability, and absolute performance.
+              Whether designing microservices, optimizing data pipelines, or building enterprise automation tools, I prioritize clean architecture, maintainability, and measurable performance.
             </p>
           </div>
 
           {/* Key traits */}
           <div className="flex flex-wrap gap-2 mt-4">
-            {["System Design", "Microservices", "AI Agents", "Game Engine Architecture", "Concurrency", "Optimization"].map((trait) => (
+            {["Java & Spring Boot", "REST APIs", "Microservices", "Data Pipelines", "System Design", "Agile / Scrum"].map((trait) => (
               <span
                 key={trait}
                 className="px-3.5 py-1.5 text-xs font-inter font-medium text-emerald-300 bg-emerald-900/10 border border-emerald-800/30 rounded-md backdrop-blur-sm"

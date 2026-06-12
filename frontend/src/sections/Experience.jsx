@@ -3,17 +3,17 @@ import { Briefcase, Calendar, MapPin, CheckCircle2 } from "lucide-react";
 function Experience() {
   const experiences = [
     {
-      role: "Software Engineering Intern",
+      role: "Software Engineering Intern (Backend & Data)",
       company: "Reltio",
       period: "Oct 2025 – Jun 2026",
       location: "Lisbon, Portugal (Hybrid)",
       achievements: [
-        <><strong className="text-zinc-200 tracking-wide">AI Systems & Analytics:</strong> Engineered intelligent agents (Python, Google AI SDK) to autonomously navigate data environments and generate complex cloud cost reports.</>,
-        <><strong className="text-zinc-200 tracking-wide">MCP Tooling & Automation:</strong> Built a proprietary Model Context Protocol (MCP) tool to actively automate dashboard generation, streamlining operations and internal tool workflows.</>,
-        <><strong className="text-zinc-200 tracking-wide">Pipeline Optimization:</strong> Refactored core infrastructure data pipelines in Java, heavily reducing processing latency and ensuring high-performance data tracking.</>,
-        <><strong className="text-zinc-200 tracking-wide">Team Collaboration & PM:</strong> Coordinated with internal engineering teams using Jira, Google Meet, and Slack to manage agile workflows and communicate effectively.</>,
+        <><strong className="text-zinc-200 tracking-wide">Java Data Pipelines:</strong> Architected and refactored core infrastructure data pipelines in Java, heavily reducing processing latency and ensuring highly available, accurate data flows.</>,
+        <><strong className="text-zinc-200 tracking-wide">Systems Automation:</strong> Designed and deployed custom AI agents (Python, Google AI SDK) to autonomously process system metrics and generate comprehensive technical cost-analysis reports.</>,
+        <><strong className="text-zinc-200 tracking-wide">API & Tooling Integration:</strong> Built a proprietary microservice-oriented tool utilizing the Model Context Protocol (MCP) to dynamically aggregate and surface data via dashboards.</>,
+        <><strong className="text-zinc-200 tracking-wide">Agile & Collaboration:</strong> Collaborated with senior engineers using Jira and Git to manage version control, resolve technical debt, and ensure seamless CI/CD workflows.</>,
       ],
-      tech: ["Java", "Python", "Google AI SDK", "MCP Architecture", "Jira & Slack"],
+      tech: ["Java", "Python", "Spring Boot", "MCP Architecture", "Git / CI-CD"],
     },
     {
       role: "Software Development Intern",
@@ -21,12 +21,13 @@ function Experience() {
       period: "Sep 2022 – Oct 2022",
       location: "Cascais, Portugal (On-site)",
       achievements: [
-        <><strong className="text-zinc-200 tracking-wide">Game Logic Instruction:</strong> Fostered critical thinking in programming by guiding students through core algorithms and simple game mechanics (e.g., jumping, breaking blocks) within Minecraft Education.</>,
-        <><strong className="text-zinc-200 tracking-wide">Backend Tooling:</strong> Developed a Python-driven content management library to centralize courses, client data, and faculty directories. This system optimized internal back-office operations, significantly improving data accessibility for administrators and allowing students to seamlessly retrieve specific class materials.</>,
+        <><strong className="text-zinc-200 tracking-wide">Backend Content System:</strong> Developed a robust Python-driven content management library to centralize faculty directories and client data, directly improving back-office retrieval times and data consistency.</>,
+        <><strong className="text-zinc-200 tracking-wide">Software Logic Instruction:</strong> Mentored students in core programming fundamentals, Object-Oriented principles, and algorithm optimization, fostering strong problem-solving skills in software design.</>,
       ],
-      tech: ["Backend Development", "Game Logic", "Mentoring"],
+      tech: ["Python", "Backend Development", "OOP", "Mentoring"],
     },
   ];
+
 
   return (
     <section

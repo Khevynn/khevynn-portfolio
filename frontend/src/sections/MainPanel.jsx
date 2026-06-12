@@ -8,7 +8,7 @@ function MainPanel() {
   const [typedText, setTypedText] = useState("");
 
   useEffect(() => {
-    const words = ["Scalable Systems", "AI Agents", "Game Engines"];
+    const words = ["REST APIs", "Scalable Backends", "Data Pipelines", "AI Agents"];
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -67,8 +67,8 @@ function MainPanel() {
         {/* Headline */}
         <div className="flex flex-col gap-2 w-full">
           <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-[5rem] font-extrabold font-outfit text-white leading-[1.1] tracking-tight">
-            Game <span className="text-zinc-600 font-light">&</span><br />
-            Systems <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-sky-400">Engineer.</span>
+            Backend <span className="text-zinc-600 font-light">&</span><br />
+            Java <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-sky-400">Developer.</span>
           </h1>
         </div>
 
@@ -76,7 +76,7 @@ function MainPanel() {
         <div className="flex items-center gap-2 sm:gap-3 px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg bg-[#0a0a0a]/80 border border-white/5 backdrop-blur-md w-full sm:w-fit max-w-full">
           <Terminal size={16} className="text-zinc-500 shrink-0" />
           <p className="text-sm text-zinc-400 font-inter font-medium tracking-wide truncate">
-            Architecting{" "}
+            Building{" "}
             <span className="text-white font-semibold">
               {typedText || "..."}
             </span>
@@ -86,7 +86,7 @@ function MainPanel() {
 
         {/* Description */}
         <p className="text-sm sm:text-base lg:text-lg text-zinc-400 font-inter max-w-xl leading-relaxed">
-          Game Programmer based in Lisbon. Specialized in <strong className="text-zinc-200 font-semibold">Core Systems</strong> and <strong className="text-zinc-200 font-semibold">Backend Architectures</strong>.
+          Backend Software Engineer based in Lisbon. Specialized in <strong className="text-zinc-200 font-semibold">Java</strong>, <strong className="text-zinc-200 font-semibold">Spring Boot</strong>, and scalable <strong className="text-zinc-200 font-semibold">REST APIs</strong>.
         </p>
 
         {/* CTA Buttons */}

@@ -3,30 +3,31 @@ import { GraduationCap, Calendar, MapPin, CheckCircle2 } from "lucide-react";
 function Education() {
   const educations = [
     {
-      degree: "Bachelor in Games Development",
+      degree: "BSc in Games Development",
       school: "IADE - European University",
       period: "2022 – 2025",
       location: "Lisbon, Portugal",
       achievements: [
-        <><strong className="text-zinc-200 tracking-wide">Gameplay & Collaboration:</strong> Developed 2D and 3D games, collaborating with UI and design teams to program player systems, combat mechanics, and AI using Unity (C#) and Unreal Engine (C++).</>,
-        <><strong className="text-zinc-200 tracking-wide">Backend & Networking:</strong> Architected Matchmaking (MM) systems and real-time networking flows, integrating game clients with Node.js backends via Webhooks and RESTful APIs.</>,
-        <><strong className="text-zinc-200 tracking-wide">Optimization & Engine Core:</strong> Applied Data Structures and Mathematics to optimize engine performance, ensuring networking logic and gameplay systems maintained strict memory efficiency.</>,
+        <><strong className="text-zinc-200 tracking-wide">Backend & Distributed Systems:</strong> Architected distributed Matchmaking logic and scalable real-time networking flows using <strong className="text-zinc-200">Node.js</strong>. Integrated client applications with secure <strong className="text-zinc-200">RESTful APIs</strong> and Webhooks.</>,
+        <><strong className="text-zinc-200 tracking-wide">OOP & Software Architecture:</strong> Applied advanced Object-Oriented Programming in <strong className="text-zinc-200">Java, C++, and C#</strong>. Implemented robust Design Patterns (Singletons, State Machines, Factory) to solve complex architectural challenges.</>,
+        <><strong className="text-zinc-200 tracking-wide">Performance Optimization:</strong> Engineered memory-efficient algorithms and high-performance data structures to maintain optimal system performance under heavy load conditions.</>,
       ],
-      tech: ["Game Design", "Unity", "Unreal Engine", "Node.js", "C#"],
+      tech: ["Java", "C++", "C#", "Node.js", "REST APIs"],
     },
     {
-      degree: "Professional Course – Computer Programmer",
+      degree: "Professional Course in Software Development",
       school: "AGMRA",
       period: "2019 – 2022",
       location: "Cascais, Portugal",
       achievements: [
-        <><strong className="text-zinc-200 tracking-wide">Core Fundamentals:</strong> Acquired practical foundations in Object-Oriented logical design, problem solving, and backend architecture.</>,
-        <><strong className="text-zinc-200 tracking-wide">Capstone Project (PAP):</strong> Developed a fully playable 3D RPG video game using Unity (C#), achieving a near-perfect final project grade of 19/20.</>,
-        <><strong className="text-zinc-200 tracking-wide">Final Results:</strong> Graduated with a high overall course average of 17/20.</>,
+        <><strong className="text-zinc-200 tracking-wide">Core Fundamentals:</strong> Acquired strong foundational knowledge in the Software Development Life Cycle (SDLC), relational databases, and enterprise programming paradigms.</>,
+        <><strong className="text-zinc-200 tracking-wide">Capstone Project (PAP):</strong> Independently delivered a complex C# software project, achieving a near-perfect capstone grade of <strong className="text-zinc-200">19/20</strong>.</>,
+        <><strong className="text-zinc-200 tracking-wide">Final Results:</strong> Graduated with honors with an overall course average of <strong className="text-zinc-200">17/20</strong>.</>,
       ],
-      tech: ["Unity", "C#", "Java", "Node.js"],
+      tech: ["Java", "C#", "SQL", "OOP"],
     },
   ];
+
 
   return (
     <section

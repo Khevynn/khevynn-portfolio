@@ -1,4 +1,4 @@
-import UnrealengineOriginal from "react-devicons/unrealengine/original";
+import SpringOriginal from "react-devicons/spring/original";
 import ReactOriginal from "react-devicons/react/original";
 import NodejsOriginal from "react-devicons/nodejs/original";
 import MysqlOriginalWordmark from "react-devicons/mysql/original-wordmark";
@@ -7,10 +7,10 @@ import CsharpOriginal from "react-devicons/csharp/original";
 import CplusplusOriginal from "react-devicons/cplusplus/original";
 import JavascriptOriginal from "react-devicons/javascript/original";
 import JavaOriginal from "react-devicons/java/original";
-import TailwindcssOriginalWordmark from "react-devicons/tailwindcss/original-wordmark";
+import PostgresqlOriginal from "react-devicons/postgresql/original";
 import GithubOriginal from "react-devicons/github/original";
 import PythonOriginal from "react-devicons/python/original";
-import { Database, Gamepad2, LayoutPanelLeft } from "lucide-react";
+import { Database, Code2, LayoutPanelLeft } from "lucide-react";
 
 function Skills() {
   const SkillBox = ({ icon, name }) => (
@@ -26,33 +26,33 @@ function Skills() {
 
   const categories = [
     {
-      title: "Game Engines & Core",
-      icon: <Gamepad2 className="text-violet-500" size={20} />,
-      skills: [
-        { name: "Unity", icon: <img src="https://devicon-website.vercel.app/api/unity/original.svg?color=%23FFFFFF" className="w-12 h-12" alt="Unity" /> },
-        { name: "Unreal Engine", icon: <UnrealengineOriginal color="#FFFFFF" size="3em" /> },
-        { name: "C#", icon: <CsharpOriginal size="3em" /> },
-        { name: "C++", icon: <CplusplusOriginal size="3em" /> },
-      ],
-    },
-    {
-      title: "Backend & Systems",
+      title: "Backend & Core Languages",
       icon: <Database className="text-emerald-500" size={20} />,
       skills: [
         { name: "Java", icon: <JavaOriginal size="3em" /> },
+        { name: "Spring Boot", icon: <SpringOriginal size="3em" /> },
         { name: "Python", icon: <PythonOriginal size="3em" /> },
         { name: "Node.js", icon: <NodejsOriginal size="3em" /> },
-        { name: "SQL", icon: <MysqlOriginalWordmark size="3em" /> },
       ],
     },
     {
-      title: "Web & Infrastructure",
+      title: "Databases & Infrastructure",
       icon: <LayoutPanelLeft className="text-sky-500" size={20} />,
       skills: [
-        { name: "React", icon: <ReactOriginal size="3em" /> },
+        { name: "PostgreSQL", icon: <PostgresqlOriginal size="3em" /> },
+        { name: "MySQL", icon: <MysqlOriginalWordmark size="3em" /> },
         { name: "Docker", icon: <DockerOriginal size="3em" /> },
-        { name: "Tailwind CSS", icon: <TailwindcssOriginalWordmark size="3em" /> },
         { name: "Git", icon: <GithubOriginal size="3em" color="#FFFFFF" /> },
+      ],
+    },
+    {
+      title: "Additional Skills",
+      icon: <Code2 className="text-violet-500" size={20} />,
+      skills: [
+        { name: "C++", icon: <CplusplusOriginal size="3em" /> },
+        { name: "C#", icon: <CsharpOriginal size="3em" /> },
+        { name: "JavaScript", icon: <JavascriptOriginal size="3em" /> },
+        { name: "React", icon: <ReactOriginal size="3em" /> },
       ],
     },
   ];
@@ -64,7 +64,7 @@ function Skills() {
           Technical Arsenal
         </h2>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-outfit text-white">
-          Skills &amp; Technologies
+          Skills & Technologies
         </h1>
       </div>
 
