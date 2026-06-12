@@ -26,33 +26,33 @@ function Skills() {
 
   const categories = [
     {
-      title: "Backend & Core Languages",
+      title: "Backend Core",
       icon: <Database className="text-emerald-500" size={20} />,
       skills: [
         { name: "Java", icon: <JavaOriginal size="3em" /> },
         { name: "Spring Boot", icon: <SpringOriginal size="3em" /> },
-        { name: "Python", icon: <PythonOriginal size="3em" /> },
-        { name: "Node.js", icon: <NodejsOriginal size="3em" /> },
-      ],
-    },
-    {
-      title: "Databases & Infrastructure",
-      icon: <LayoutPanelLeft className="text-sky-500" size={20} />,
-      skills: [
         { name: "PostgreSQL", icon: <PostgresqlOriginal size="3em" /> },
         { name: "MySQL", icon: <MysqlOriginalWordmark size="3em" /> },
-        { name: "Docker", icon: <DockerOriginal size="3em" /> },
-        { name: "Git", icon: <GithubOriginal size="3em" color="#FFFFFF" /> },
       ],
     },
     {
-      title: "Additional Skills",
+      title: "Infrastructure & Tools",
+      icon: <LayoutPanelLeft className="text-sky-500" size={20} />,
+      skills: [
+        { name: "Docker", icon: <DockerOriginal size="3em" /> },
+        { name: "Git", icon: <GithubOriginal size="3em" color="#FFFFFF" /> },
+        { name: "Node.js", icon: <NodejsOriginal size="3em" /> },
+        { name: "React", icon: <ReactOriginal size="3em" /> },
+      ],
+    },
+    {
+      title: "Other Tools / Academic Knowledge",
       icon: <Code2 className="text-violet-500" size={20} />,
       skills: [
+        { name: "Python", icon: <PythonOriginal size="3em" /> },
         { name: "C++", icon: <CplusplusOriginal size="3em" /> },
         { name: "C#", icon: <CsharpOriginal size="3em" /> },
         { name: "JavaScript", icon: <JavascriptOriginal size="3em" /> },
-        { name: "React", icon: <ReactOriginal size="3em" /> },
       ],
     },
   ];

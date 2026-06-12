@@ -8,7 +8,7 @@ function Experience() {
       period: "Oct 2025 – Jun 2026",
       location: "Lisbon, Portugal (Hybrid)",
       achievements: [
-        <><strong className="text-zinc-200 tracking-wide">Java Data Pipelines:</strong> Architected and refactored core infrastructure data pipelines in Java, heavily reducing processing latency and ensuring highly available, accurate data flows.</>,
+        <><strong className="text-zinc-200 tracking-wide">Java & Spring Boot Pipelines:</strong> Architected and refactored core infrastructure data pipelines using Java, Spring Boot, and Hibernate, reducing processing latency by 60% and ensuring highly available, accurate data flows.</>,
         <><strong className="text-zinc-200 tracking-wide">Systems Automation:</strong> Designed and deployed custom AI agents (Python, Google AI SDK) to autonomously process system metrics and generate comprehensive technical cost-analysis reports.</>,
         <><strong className="text-zinc-200 tracking-wide">API & Tooling Integration:</strong> Built a proprietary microservice-oriented tool utilizing the Model Context Protocol (MCP) to dynamically aggregate and surface data via dashboards.</>,
         <><strong className="text-zinc-200 tracking-wide">Agile & Collaboration:</strong> Collaborated with senior engineers using Jira and Git to manage version control, resolve technical debt, and ensure seamless CI/CD workflows.</>,
