@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khevynn Sá - Software Engineer (Backend & Games) CV</title>
+  <title>Khevynn Sá - Backend Software Engineer CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -44,32 +44,33 @@
 
     header {
       border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 25px;
+      padding-bottom: 20px;
       margin-bottom: 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+      text-align: center;
     }
 
     .header-main h1 {
       font-size: 2.8rem;
       font-weight: 700;
       color: var(--primary-color);
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       letter-spacing: -0.5px;
+      line-height: 1.1;
     }
 
     .header-main h2 {
-      font-size: 1.3rem;
-      font-weight: 400;
+      font-size: 1.25rem;
+      font-weight: 500;
       color: var(--accent-color);
+      letter-spacing: 0.2px;
     }
 
     .contact-info {
-      text-align: right;
+      text-align: center;
       font-size: 0.95rem;
       color: var(--text-muted);
+      margin-top: 15px;
+      line-height: 1.8;
     }
 
     .contact-info a {
@@ -80,10 +81,6 @@
 
     .contact-info a:hover {
       color: var(--accent-color);
-    }
-
-    .contact-info p {
-      margin-bottom: 4px;
     }
 
     section {
@@ -237,7 +234,26 @@
       body {
         background-color: transparent;
         font-size: 12px;
-        /* Reduz o tamanho da fonte base no PDF */
+      }
+
+      header {
+        flex-wrap: nowrap;
+        gap: 10px;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+      }
+
+      .header-main h1 {
+        font-size: 24pt;
+        margin-bottom: 2px;
+      }
+
+      .header-main h2 {
+        font-size: 12pt;
+      }
+
+      .contact-info {
+        font-size: 9pt;
       }
 
       .cv-container {
@@ -302,25 +318,28 @@
     <header>
       <div class="header-main">
         <h1>Khevynn Sá</h1>
-        <h2>Game Programmer & Systems Engineer</h2>
+        <h2>Backend Software Engineer | Java Developer</h2>
       </div>
       <div class="contact-info">
-        <p>Lisbon, Portugal</p>
-        <p><a href="mailto:tgwinter@proton.me">tgwinter@proton.me</a> | +351 935 784 446</p>
-        <p><a href="https://linkedin.com/in/khevynn-sá-8774162a1" target="_blank">LinkedIn</a> | <a
-            href="https://github.com/Khevynn" target="_blank">GitHub</a></p>
-        <p><a href="https://khevynn-sa-portfolio.vercel.app" target="_blank">khevynn-sa-portfolio.vercel.app</a></p>
+        Lisbon, Portugal &nbsp;|&nbsp;
+        <a href="mailto:tgwinter@proton.me">tgwinter@proton.me</a> &nbsp;|&nbsp;
+        +351 935 784 446 <br>
+        <a href="https://linkedin.com/in/khevynn-sá-8774162a1" target="_blank">linkedin.com/in/khevynn-sá-8774162a1</a>
+        &nbsp;|&nbsp;
+        <a href="https://github.com/Khevynn" target="_blank">github.com/Khevynn</a> &nbsp;|&nbsp;
+        <a href="https://khevynn-sa-portfolio.vercel.app" target="_blank">khevynn-sa-portfolio.vercel.app</a>
       </div>
     </header>
 
     <section>
       <h3 class="section-title">Professional Summary</h3>
       <p class="summary">
-        Game Programmer with a strong foundation in Gameplay Systems and Backend Architecture. At IADE, I built and
-        shipped complete games every semester using Unity (C#) and Unreal Engine (C++), programming player systems,
-        game-flow logic, and multiplayer networking. Leveraging my software engineering background from Reltio, I also
-        design scalable backend systems, build data pipelines in Java, and develop AI agents in Python — bringing a
-        full-stack technical perspective to game development.
+        Backend Software Engineer with a strong foundation in Object-Oriented Programming (Java, C++, C#) and scalable
+        systems architecture. Experienced in designing robust backend services, optimizing complex data pipelines, and
+        building AI-driven enterprise automation tools. Proven ability to deliver complete, high-performance software
+        solutions within structured Agile environments. Adept at translating complex business requirements into
+        efficient, scalable code, I am actively seeking a Junior Java/Backend Developer role to contribute to
+        mission-critical enterprise applications.
       </p>
     </section>
 
@@ -329,7 +348,7 @@
 
       <div class="experience-item">
         <div class="item-header">
-          <span class="item-title">Software Engineering Intern</span>
+          <span class="item-title">Software Engineering Intern (Backend & Data)</span>
           <span class="item-date">Oct 2025 – Jun 2026</span>
         </div>
         <div class="item-subtitle">
@@ -337,17 +356,17 @@
           <span class="item-location">Lisbon, Portugal (Hybrid)</span>
         </div>
         <div class="item-desc">
-          <p>Developed advanced software integrations and data pipelines, optimizing cloud infrastructure monitoring and
-            reporting.</p>
+          <p>Engineered backend integrations and data processing pipelines to optimize cloud infrastructure
+            observability and enterprise reporting.</p>
           <ul>
-            <li><b>AI Agent Architecture:</b> Engineered customized agents (Python, Google AI SDK) to autonomously
-              analyze metrics and draft complex technical reports regarding operational Cloud costs.</li>
-            <li><b>MCP Tooling & Automation:</b> Built a proprietary Model Context Protocol (MCP) tool to generate
-              targeted dashboards, fundamentally streamlining weekly data analysis meetings.</li>
-            <li><b>Pipeline Optimization:</b> Refactored core internal infrastructure data pipelines in Java, heavily
-              reducing processing time and ensuring stable, high-accuracy data flows.</li>
-            <li><b>Team Collaboration & PM:</b> Coordinated with internal engineering teams using Jira, Google Meet, and
-              Slack to manage agile workflows and communicate effectively.</li>
+            <li><b>Java Data Pipelines:</b> Architected and refactored core infrastructure data pipelines in Java,
+              heavily reducing processing latency and ensuring highly available, accurate data flows.</li>
+            <li><b>Systems Automation:</b> Designed and deployed custom AI agents (Python, Google AI SDK) to
+              autonomously process system metrics and generate comprehensive technical cost-analysis reports.</li>
+            <li><b>API & Tooling Integration:</b> Built a proprietary microservice-oriented tool utilizing the Model
+              Context Protocol (MCP) to dynamically aggregate and surface data via dashboards.</li>
+            <li><b>Agile & Cross-Functional Collaboration:</b> Collaborated with senior engineers using Jira and Git to
+              manage version control, resolve technical debt, and ensure seamless CI/CD workflows.</li>
           </ul>
         </div>
       </div>
@@ -362,16 +381,13 @@
           <span class="item-location">Cascais, Portugal (On-site)</span>
         </div>
         <div class="item-desc">
-          <p>Instructed core software development logic while collaborating with internal engineering teams to build
-            operational tools.</p>
+          <p>Developed internal software tooling and instructed fundamental programming logic to students.</p>
           <ul>
-            <li><b>Game Logic Instruction:</b> Fostered critical thinking in programming by guiding students through
-              core algorithms and simple game mechanics (e.g., jumping, breaking blocks) within Minecraft Education.
+            <li><b>Backend Content System:</b> Developed a robust Python-driven content management library to centralize
+              faculty directories and client data, directly improving back-office retrieval times and data consistency.
             </li>
-            <li><b>Backend Tooling:</b> Developed a Python-driven content management library to centralize courses,
-              client data, and faculty directories. This system optimized internal back-office operations, significantly
-              improving data accessibility for administrators and allowing students to seamlessly retrieve specific
-              class materials.</li>
+            <li><b>Software Logic Instruction:</b> Mentored students in core programming fundamentals, Object-Oriented
+              principles, and algorithm optimization, fostering strong problem-solving skills in software design.</li>
           </ul>
         </div>
       </div>
@@ -382,7 +398,7 @@
 
       <div class="education-item">
         <div class="item-header">
-          <span class="item-title">BSc Games Development</span>
+          <span class="item-title">BSc in Games Development</span>
           <span class="item-date">Sep 2022 – Jul 2025</span>
         </div>
         <div class="item-subtitle">
@@ -390,21 +406,17 @@
           <span class="item-location">Lisbon, Portugal</span>
         </div>
         <div class="item-desc">
-          <p>Engaged in an intensive Project-Based Learning (PBL) curriculum, operating in multidisciplinary teams to
-            develop and ship a complete core game or software application every semester.</p>
+          <p>Intensive Software Engineering curriculum centered on C++/C# Object-Oriented design, performance-critical
+            computing, and distributed architectures.</p>
           <ul>
-            <li><b>Gameplay Programming:</b> Developed 2D and 3D games in <b>Unity (C#)</b> and <b>Unreal Engine
-                (C++)</b>, implementing player controllers, state machines, inventory systems, combat mechanics (melee
-              &amp; ranged), and enemy AI behaviours. Collaborated with UI/UX and art teams across structured Agile
-              sprints.</li>
-            <li><b>Backend &amp; Networking:</b> Designed Matchmaking (MM) systems and real-time multiplayer flows using
-              <b>Node.js</b>, integrating game clients via <b>Webhooks</b> and <b>RESTful APIs</b>. Applied data
-              structures from coursework to architect efficient game-state logic.
-            </li>
-            <li><b>Projects:</b> Shipped multiple complete games across semesters. Key projects include a real-time
-              multiplayer game (Node.js backend), a 3D survival game (Unity), and a first-person multiplayer shooter
-              prototype
-              (Unreal Engine).</li>
+            <li><b>Backend & Distributed Systems:</b> Architected distributed Matchmaking logic and scalable real-time
+              networking flows using <b>Node.js</b>. Integrated client applications with secure <b>RESTful APIs</b> and
+              Webhooks.</li>
+            <li><b>OOP & Software Architecture:</b> Applied advanced Object-Oriented Programming (OOP) in <b>Java, C++,
+                and C#</b>. Implemented robust Design Patterns (Singletons, State Machines, Factory) to solve complex
+              architectural challenges.</li>
+            <li><b>Performance Optimization:</b> Engineered memory-efficient algorithms and high-performance data
+              structures to maintain optimal system performance under heavy load conditions.</li>
           </ul>
         </div>
       </div>
@@ -419,9 +431,9 @@
           <span class="item-location">Cascais, Portugal</span>
         </div>
         <div class="item-desc">
-          <p>Acquired practical foundations in fundamental programming paradigms and Object-Oriented software design.
-            For the final capstone project (PAP), independently developed a fully playable 3D RPG game using Unity (C#).
-            Scored a 19/20 on the final project defense and graduated with a final course average of 17/20.</p>
+          <p>Acquired strong foundational knowledge in the Software Development Life Cycle (SDLC), relational databases,
+            and enterprise programming paradigms. Graduated with honors (17/20), independently delivering a complex C#
+            software project (19/20) for the final capstone.</p>
         </div>
       </div>
     </section>
@@ -430,39 +442,38 @@
       <h3 class="section-title">Technical Skills</h3>
       <div class="skills-grid">
         <div class="skill-category">
-          <h4>Game Engines & Core</h4>
+          <h4>Backend Engineering</h4>
           <ul class="skill-list">
-            <li>Unity / C#</li>
-            <li>Unreal Engine / C++</li>
-            <li>Gameplay Systems &amp; State Machines</li>
-            <li>Multiplayer Networking (Node.js, REST)</li>
+            <li>Java / Spring Boot / Hibernate</li>
+            <li>RESTful APIs & Microservices</li>
+            <li>Node.js / Express / Python</li>
+            <li>Object-Oriented Programming (OOP)</li>
           </ul>
         </div>
         <div class="skill-category">
-          <h4>Backend & Systems</h4>
+          <h4>Databases & Infrastructure</h4>
           <ul class="skill-list">
-            <li>Java & Python</li>
-            <li>Node.js / Express</li>
-            <li>SQL (MySQL) & Databases</li>
-            <li>Data Pipelines & Automation</li>
-          </ul>
-        </div>
-        <div class="skill-category">
-          <h4>Web & Infrastructure</h4>
-          <ul class="skill-list">
-            <li>React & Tailwind CSS</li>
+            <li>PostgreSQL / MySQL</li>
+            <li>Data Pipelines & ETL</li>
             <li>Docker & Containerization</li>
-            <li>Git / GitHub / Version Control</li>
-            <li>Model Context Protocol (MCP)</li>
+            <li>Git / GitHub / CI/CD concepts</li>
           </ul>
         </div>
         <div class="skill-category">
-          <h4>AI & Methodologies</h4>
+          <h4>Architecture & Methodologies</h4>
           <ul class="skill-list">
-            <li>AI Agents / Google AI SDK</li>
-            <li>AI Tooling (Cursor, Claude, MCP)</li>
-            <li>System Design & Microservices</li>
-            <li>Agile Methodology (Jira, Scrum)</li>
+            <li>Systems Design & Patterns</li>
+            <li>Agile Methodology (Scrum, Jira)</li>
+            <li>Test-Driven Development (TDD) principles</li>
+            <li>Performance Optimization</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h4>Core Languages & Tools</h4>
+          <ul class="skill-list">
+            <li>Java, C++, C#</li>
+            <li>SQL, JSON, XML</li>
+            <li>Postman / API Testing</li>
           </ul>
         </div>
       </div>

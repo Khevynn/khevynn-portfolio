@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
-<html lang="pt">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khevynn Sá - Engenheiro de Software (Backend & Jogos) CV</title>
+  <title>Khevynn Sá - Engenheiro de Software Backend CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -46,30 +46,31 @@
       border-bottom: 2px solid var(--accent-color);
       padding-bottom: 20px;
       margin-bottom: 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+      text-align: center;
     }
 
     .header-main h1 {
       font-size: 2.8rem;
       font-weight: 700;
       color: var(--primary-color);
-      margin-bottom: 5px;
+      margin-bottom: 4px;
       letter-spacing: -0.5px;
+      line-height: 1.1;
     }
 
     .header-main h2 {
-      font-size: 1.3rem;
-      font-weight: 400;
+      font-size: 1.25rem;
+      font-weight: 500;
       color: var(--accent-color);
+      letter-spacing: 0.2px;
     }
 
     .contact-info {
-      text-align: right;
+      text-align: center;
       font-size: 0.95rem;
       color: var(--text-muted);
+      margin-top: 15px;
+      line-height: 1.8;
     }
 
     .contact-info a {
@@ -82,10 +83,6 @@
       color: var(--accent-color);
     }
 
-    .contact-info p {
-      margin-bottom: 4px;
-    }
-
     section {
       margin-bottom: 20px;
     }
@@ -94,7 +91,7 @@
       font-size: 1.4rem;
       font-weight: 600;
       color: var(--primary-color);
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       text-transform: uppercase;
       letter-spacing: 1px;
       display: flex;
@@ -237,7 +234,26 @@
       body {
         background-color: transparent;
         font-size: 12px;
-        /* Reduz o tamanho da fonte base no PDF */
+      }
+
+      header {
+        flex-wrap: nowrap;
+        gap: 10px;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+      }
+
+      .header-main h1 {
+        font-size: 24pt;
+        margin-bottom: 2px;
+      }
+
+      .header-main h2 {
+        font-size: 12pt;
+      }
+
+      .contact-info {
+        font-size: 9pt;
       }
 
       .cv-container {
@@ -302,25 +318,23 @@
     <header>
       <div class="header-main">
         <h1>Khevynn Sá</h1>
-        <h2>Programador de Jogos & Sistemas</h2>
+        <h2>Engenheiro de Software Backend | Desenvolvedor Java</h2>
       </div>
       <div class="contact-info">
-        <p>Lisboa, Portugal</p>
-        <p><a href="mailto:tgwinter@proton.me">tgwinter@proton.me</a> | +351 935 784 446</p>
-        <p><a href="https://linkedin.com/in/khevynn-sá-8774162a1" target="_blank">LinkedIn</a> | <a
-            href="https://github.com/Khevynn" target="_blank">GitHub</a></p>
-        <p><a href="https://khevynn-sa-portfolio.vercel.app" target="_blank">khevynn-sa-portfolio.vercel.app</a></p>
+        Lisboa, Portugal &nbsp;|&nbsp;
+        <a href="mailto:tgwinter@proton.me">tgwinter@proton.me</a> &nbsp;|&nbsp;
+        +351 935 784 446 <br>
+        <a href="https://linkedin.com/in/khevynn-sá-8774162a1" target="_blank">linkedin.com/in/khevynn-sa</a>
+        &nbsp;|&nbsp;
+        <a href="https://github.com/Khevynn" target="_blank">github.com/Khevynn</a> &nbsp;|&nbsp;
+        <a href="https://khevynn-sa-portfolio.vercel.app" target="_blank">khevynn-sa-portfolio.vercel.app</a>
       </div>
     </header>
 
     <section>
       <h3 class="section-title">Resumo Profissional</h3>
       <p class="summary">
-        Programador de Jogos com uma sólida fundação em Sistemas de Gameplay e Arquitetura Backend. Na IADE, construí e
-        lancei jogos completos em cada semestre usando Unity (C#) e Unreal Engine (C++), programando sistemas de
-        jogador, lógica de fluxo de jogo e networking multiplayer. Aproveitando a minha experiência em engenharia de
-        software na Reltio, desenvolvo também sistemas backend escaláveis em Java, pipelines de dados e agentes IA em
-        Python — trazendo uma perspetiva técnica full-stack ao desenvolvimento de jogos.
+        Engenheiro de Software Backend com forte base em Programação Orientada a Objetos (Java, C++, C#) e arquitetura de sistemas escaláveis. Tenho experiência na construção de serviços backend robustos, otimização de pipelines de dados complexos e desenvolvimento de ferramentas corporativas de automação baseadas em IA. Possuo um histórico comprovado de entrega de soluções de software de alta performance dentro de ambientes Ágeis. Com grande facilidade para traduzir requisitos complexos de negócios em código eficiente, procuro uma oportunidade como Desenvolvedor Java/Backend Júnior para construir e escalar aplicações corporativas de missão crítica.
       </p>
     </section>
 
@@ -329,7 +343,7 @@
 
       <div class="experience-item">
         <div class="item-header">
-          <span class="item-title">Estagiário de Engenharia de Software</span>
+          <span class="item-title">Estagiário de Engenharia de Software (Backend & Dados)</span>
           <span class="item-date">Out 2025 – Jun 2026</span>
         </div>
         <div class="item-subtitle">
@@ -337,19 +351,12 @@
           <span class="item-location">Lisboa, Portugal (Híbrido)</span>
         </div>
         <div class="item-desc">
-          <p>Desenvolvimento de integrações de software complexas e pipelines de dados, otimizando ativamente a
-            monitorização da infraestrutura Cloud.</p>
+          <p>Desenvolvi integrações de backend e pipelines de dados focados em otimizar a observabilidade da infraestrutura cloud e a geração de relatórios corporativos.</p>
           <ul>
-            <li><b>Arquitetura de Agentes IA:</b> Engenharia de agentes personalizados (Python, Google AI SDK) para
-              analisar metodicamente métricas operacionais e redigir relatórios técnicos sobre custos da infraestrutura.
-            </li>
-            <li><b>Automação & Ferramentas MCP:</b> Construção de uma ferramenta proprietária (Model Context Protocol)
-              para acelerar a geração autómata de dashboards analíticos, otimizando estruturalmente as reuniões semanais
-              de Cloud.</li>
-            <li><b>Otimização de Pipelines:</b> Refatoração do núcleo dos pipelines de dados internos em Java, reduzindo
-              substancialmente a latência de processamento e garantindo a alta exatidão das métricas.</li>
-            <li><b>Colaboração em Equipa & Gestão de Projetos:</b> Coordenação com equipas internas de engenharia
-              utilizando Jira, Google Meet e Slack para gerir fluxos de trabalho ágeis e comunicar eficazmente.</li>
+            <li><b>Pipelines de Dados em Java:</b> Arquitetei e refatorei os principais pipelines de dados da infraestrutura usando Java, reduzindo drasticamente a latência de processamento e garantindo fluxos de alta disponibilidade.</li>
+            <li><b>Automação de Sistemas:</b> Projetei e implementei agentes de Inteligência Artificial personalizados (Python, Google AI SDK) para processar métricas de sistemas de forma autônoma e gerar relatórios técnicos detalhados sobre custos operacionais.</li>
+            <li><b>Integração de APIs e Ferramentas:</b> Construí uma ferramenta proprietária orientada a microsserviços utilizando o Model Context Protocol (MCP) para agregar e exibir dados dinamicamente em dashboards interativos.</li>
+            <li><b>Metodologia Ágil e Colaboração:</b> Colaborei diretamente com engenheiros seniores gerindo o controle de versão com Git, resolvendo débitos técnicos e garantindo fluxos contínuos de CI/CD através de metodologias ágeis (Jira).</li>
           </ul>
         </div>
       </div>
@@ -364,23 +371,17 @@
           <span class="item-location">Cascais, Portugal (Presencial)</span>
         </div>
         <div class="item-desc">
-          <p>Instrução de vertentes nucleares para desenvolvimento de jogos, com paralelismo direto com equipas de
-            engenharia no desenho de ferramentas operacionais internas.</p>
+          <p>Desenvolvi ferramentas internas e lecionei os fundamentos da lógica de programação para novos alunos.</p>
           <ul>
-            <li><b>Lógica de Videojogos & Ensino:</b> Desenvolvimento do pensamento crítico em lógica de programação,
-              orientando alunos na criação de mecânicas de jogo (ex: saltar, quebrar blocos) através do Minecraft
-              Education.</li>
-            <li><b>Ferramentas de Backend:</b> Desenvolvimento de uma biblioteca centralizada em Python para gestão
-              intensiva de cursos, clientes e corpo docente. Este sistema otimizou as operações internas, facilitando o
-              acesso instantâneo aos dados por parte dos administradores e permitindo aos alunos resgatar eficazmente os
-              materiais práticos para cada aula.</li>
+            <li><b>Sistema de Conteúdo Backend:</b> Construí uma biblioteca robusta em Python para gestão de conteúdo, centralizando o diretório de professores e os dados de clientes. Este sistema otimizou significativamente o tempo de resposta do back-office e garantiu a integridade das informações.</li>
+            <li><b>Instrução de Lógica de Software:</b> Orientei alunos nos fundamentos centrais da programação, princípios de Orientação a Objetos e otimização de algoritmos, desenvolvendo neles uma forte capacidade de resolução de problemas focada em arquitetura de software.</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section>
-      <h3 class="section-title">Formação Académica</h3>
+      <h3 class="section-title">Formação Acadêmica</h3>
 
       <div class="education-item">
         <div class="item-header">
@@ -392,28 +393,18 @@
           <span class="item-location">Lisboa, Portugal</span>
         </div>
         <div class="item-desc">
-          <p>Conclusão de uma sólida estrutura curricular em regime rigoroso de Project-Based Learning (PBL), operando
-            em equipas multidisciplinares para garantir o lançamento produtivo de um core game funcional e interativo a
-            cada semestre.</p>
+          <p>Programa intensivo de Engenharia de Software focado em design Orientado a Objetos (C++/C#), computação de alta performance e arquiteturas distribuídas.</p>
           <ul>
-            <li><b>Programação de Gameplay:</b> Desenvolvimento de jogos 2D e 3D em <b>Unity (C#)</b> e <b>Unreal Engine
-                (C++)</b>, implementando controladores de jogador, state machines, sistemas de inventário, mecânicas de
-              combate (corpo a corpo &amp; à distância) e comportamentos de IA inimiga. Colaboração com equipas de UI/UX
-              e arte em sprints Ágeis estruturados.</li>
-            <li><b>Backend &amp; Networking:</b> Conceção de sistemas de Matchmaking (MM) e fluxos multiplayer em tempo
-              real usando <b>Node.js</b>, integrando clientes de jogo via <b>Webhooks</b> e <b>APIs RESTful</b>.
-              Aplicação de estruturas de dados do plano curricular para arquitetar lógica de estado de jogo eficiente.
-            </li>
-            <li><b>Projetos:</b> Entrega de múltiplos jogos completos ao longo dos semestres. Projetos de destaque: jogo
-              multiplayer em tempo real (Node.js), jogo de sobrevivência 3D (Unity) e protótipo de FPS (Unreal Engine).
-            </li>
+            <li><b>Sistemas Backend e Distribuídos:</b> Arquitetei sistemas distribuídos de Matchmaking e fluxos de rede escaláveis em tempo real utilizando <b>Node.js</b>. Integrei aplicações cliente com <b>APIs RESTful</b> seguras e Webhooks.</li>
+            <li><b>POO e Arquitetura de Software:</b> Apliquei conceitos avançados de Programação Orientada a Objetos (POO) em <b>Java, C++ e C#</b>. Implementei Design Patterns robustos (como Singletons, Máquinas de Estado e Factory) para solucionar desafios complexos de arquitetura.</li>
+            <li><b>Otimização de Performance:</b> Desenvolvi algoritmos altamente otimizados em gestão de memória e estruturas de dados de alta performance, garantindo a estabilidade e a velocidade ideal do sistema mesmo sob condições extremas de carga.</li>
           </ul>
         </div>
       </div>
 
       <div class="education-item">
         <div class="item-header">
-          <span class="item-title">Curso Profissional de Desenvolvimento de Software</span>
+          <span class="item-title">Curso Profissional em Desenvolvimento de Software</span>
           <span class="item-date">2019 – 2022</span>
         </div>
         <div class="item-subtitle">
@@ -421,10 +412,7 @@
           <span class="item-location">Cascais, Portugal</span>
         </div>
         <div class="item-desc">
-          <p>Aquisição de fundações teóricas e práticas em paradigmas fundamentais de programação e design orientado a
-            objetos. Para o projeto final de curso (PAP), desenvolvi um jogo RPG 3D independente utilizando Unity (C#),
-            avaliado com 19/20 Valores na defesa de final de curso. Média final concluída com alto mérito de 17/20
-            Valores.</p>
+          <p>Adquiri uma base sólida no Ciclo de Vida de Desenvolvimento de Software (SDLC), modelagem de bancos de dados relacionais e paradigmas de programação corporativa. Formei-me com excelência (17/20), projetando e entregando de forma independente um software complexo em C# que obteve a nota de 19/20 na Prova de Aptidão Profissional (PAP).</p>
         </div>
       </div>
     </section>
@@ -433,39 +421,38 @@
       <h3 class="section-title">Competências Técnicas</h3>
       <div class="skills-grid">
         <div class="skill-category">
-          <h4>Motores de Jogo</h4>
+          <h4>Engenharia Backend</h4>
           <ul class="skill-list">
-            <li>Unity / C#</li>
-            <li>Unreal Engine / C++</li>
-            <li>Sistemas de Gameplay &amp; State Machines</li>
-            <li>Networking Multiplayer (Node.js, REST)</li>
+            <li>Java / Spring Boot / Hibernate</li>
+            <li>APIs RESTful & Microsserviços</li>
+            <li>Node.js / Express / Python</li>
+            <li>Programação Orientada a Objetos (POO)</li>
           </ul>
         </div>
         <div class="skill-category">
-          <h4>Backend & Sistemas</h4>
+          <h4>Banco de Dados e Infraestrutura</h4>
           <ul class="skill-list">
-            <li>Java & Python</li>
-            <li>Node.js / Express</li>
-            <li>SQL (MySQL) & Bases de Dados</li>
-            <li>Pipelines de Dados e Automação</li>
+            <li>PostgreSQL / MySQL</li>
+            <li>Pipelines de Dados & ETL</li>
+            <li>Docker & Conteinerização</li>
+            <li>Git / GitHub / Conceitos de CI/CD</li>
           </ul>
         </div>
         <div class="skill-category">
-          <h4>Web & Infraestrutura</h4>
+          <h4>Arquitetura e Metodologias</h4>
           <ul class="skill-list">
-            <li>React & Tailwind CSS</li>
-            <li>Docker & Containers</li>
-            <li>Git / GitHub / Controlo de Versões</li>
-            <li>Model Context Protocol (MCP)</li>
+            <li>Design de Sistemas & Padrões (Patterns)</li>
+            <li>Metodologia Ágil (Scrum, Jira)</li>
+            <li>Princípios de Test-Driven Development (TDD)</li>
+            <li>Otimização de Performance</li>
           </ul>
         </div>
         <div class="skill-category">
-          <h4>IA & Metodologias</h4>
+          <h4>Linguagens e Ferramentas Principais</h4>
           <ul class="skill-list">
-            <li>Agentes IA / Google AI SDK</li>
-            <li>Ferramentas IA (Cursor, Claude, MCP)</li>
-            <li>Design de Sistemas & Microsserviços</li>
-            <li>Metodologia Ágil (Jira, Scrum)</li>
+            <li>Java, C++, C#</li>
+            <li>SQL, JSON, XML</li>
+            <li>Postman / Testes de API</li>
           </ul>
         </div>
       </div>
@@ -475,8 +462,7 @@
       <h3 class="section-title">Idiomas</h3>
       <ul class="languages-list">
         <li><strong>Português:</strong> Nativo</li>
-        <li><strong>Inglês:</strong> Profissional (Nível C1 Compreensão Auditiva &middot; B2 Falado, Leitura, Escrita)
-        </li>
+        <li><strong>Inglês:</strong> Profissional (C1 Compreensão Oral &middot; B2 Fala, Leitura e Escrita)</li>
       </ul>
     </section>
   </div>
